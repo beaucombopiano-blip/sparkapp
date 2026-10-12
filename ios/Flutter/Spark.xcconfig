@@ -1,0 +1,7 @@
+// SPARK iOS configuration. Override per environment (see docs/FRONTEND_DECISIONS.md).
+// Reversed iOS client ID from GoogleService-Info.plist (Google Sign-In URL scheme).
+GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.replace-me
+// AdMob app ID. Default is Google's public sample ID; replace before release.
+ADMOB_APP_ID = ca-app-pub-3940256099942544~1458002511
+// Domain serving apple-app-site-association for email sign-in links.
+SPARK_LINK_DOMAIN = spark-app.web.app

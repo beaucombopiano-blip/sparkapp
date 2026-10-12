@@ -1,0 +1,1758 @@
+{
+  "@@locale": "en",
+  "appName": "SPARK",
+  "appSlogan": "By Teens. For Teens.",
+  "commonToday": "Today",
+  "commonTomorrow": "Tomorrow",
+  "commonYesterday": "Yesterday",
+  "commonRetry": "Try again",
+  "commonCancel": "Cancel",
+  "commonContinue": "Continue",
+  "commonNext": "Next",
+  "commonBack": "Back",
+  "commonDone": "Done",
+  "commonSave": "Save",
+  "commonSaving": "Saving…",
+  "commonSaved": "Saved",
+  "commonEdit": "Edit",
+  "commonDelete": "Delete",
+  "commonRemove": "Remove",
+  "commonClose": "Close",
+  "commonConfirm": "Confirm",
+  "commonNotNow": "Not now",
+  "commonSkip": "Skip",
+  "commonOpen": "Open",
+  "commonOpenLink": "Open link",
+  "commonLearnMore": "Learn more",
+  "commonSeeAll": "See all",
+  "commonLoading": "Loading…",
+  "commonYes": "Yes",
+  "commonNo": "No",
+  "commonOptional": "Optional",
+  "commonOn": "On",
+  "commonOff": "Off",
+  "commonPremium": "Premium",
+  "commonNew": "New",
+  "commonMore": "More options",
+  "commonUndo": "Undo",
+  "commonDoneCheck": "Done ✓",
+  "commonSomethingWrong": "Something went wrong",
+  "durationMinutes": "{minutes}m",
+  "@durationMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHours": "{hours}h",
+  "@durationHours": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutes": "{hours}h {minutes}m",
+  "@durationHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesLong": "{minutes, plural, =1{1 minute} other{{minutes} minutes}}",
+  "@durationMinutesLong": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursPerWeek": "About {hours} hours a week",
+  "@hoursPerWeek": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "errorNetwork": "You seem to be offline. Check your connection and try again.",
+  "errorTimeout": "That took too long. Please try again.",
+  "errorUnauthenticated": "Please sign in again to continue.",
+  "errorPermissionDenied": "You don't have access to that.",
+  "errorNotFound": "We couldn't find that. It may have been removed.",
+  "errorInvalidInput": "Something in that request wasn't quite right. Please check and try again.",
+  "errorRateLimited": "You've hit today's limit for this. Try again later.",
+  "errorFeatureLocked": "This feature isn't included in your plan.",
+  "errorConflict": "Something changed in the meantime. Please refresh and try again.",
+  "errorCancelled": "Cancelled.",
+  "errorServer": "Our servers hit a snag. Please try again in a moment.",
+  "errorNotConfigured": "This part of SPARK isn't set up yet.",
+  "errorUnknown": "Something went wrong. Please try again.",
+  "offlineBanner": "You're offline. Showing what's saved on this device.",
+  "notConfiguredTitle": "SPARK isn't connected yet",
+  "notConfiguredBody": "Firebase hasn't been configured for this build. Run `flutterfire configure` or pass the SPARK_FIREBASE_* values, then restart the app.",
+  "tabDashboard": "Dashboard",
+  "tabProject": "Project",
+  "tabJournal": "Journal",
+  "tabProfile": "Profile",
+  "titleAgenda": "Agenda",
+  "titleTask": "Task",
+  "titleTimeline": "Timeline",
+  "titleResources": "Resources",
+  "titleOpportunities": "Opportunities",
+  "titleAdjustPlan": "Adjust plan",
+  "titleJournalEntry": "Journal entry",
+  "titleScrapbook": "Scrapbook",
+  "titleBadges": "Badges",
+  "titleLeaderboard": "Leaderboard",
+  "titleReflections": "Reflections",
+  "titleSubscription": "Subscription",
+  "titleCommunity": "Community",
+  "titlePastProjects": "Past projects",
+  "titleSettings": "Settings",
+  "titleCompanion": "Companion",
+  "titlePlans": "Plans",
+  "logoSemantics": "SPARK, go to Dashboard",
+  "settingsTooltip": "Settings",
+  "backTooltip": "Back",
+  "companionButtonSemantics": "Ask your companion",
+  "progressSemantics": "Project {done} complete, {projected} projected by Sunday",
+  "@progressSemantics": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "projected": {
+        "type": "String"
+      }
+    }
+  },
+  "progressSemanticsSimple": "Project {done} complete",
+  "@progressSemanticsSimple": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      }
+    }
+  },
+  "progressLabel": "{done} done · {projected} by Sunday if you stick to the plan",
+  "@progressLabel": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "projected": {
+        "type": "String"
+      }
+    }
+  },
+  "progressLabelSimple": "{done} done",
+  "@progressLabelSimple": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      }
+    }
+  },
+  "priorityHigh": "High priority",
+  "priorityMedium": "Medium priority",
+  "priorityLow": "Low priority",
+  "taskLocked": "Locked until earlier tasks are done",
+  "taskDueOn": "Due {date}",
+  "@taskDueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "taskCompleteSemantics": "Mark {title} complete",
+  "@taskCompleteSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "taskDoneSemantics": "{title}, done",
+  "@taskDoneSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "taskCompleting": "Saving…",
+  "sessionStatusScheduled": "Scheduled",
+  "sessionStatusInProgress": "In progress",
+  "sessionStatusCompleted": "Completed",
+  "sessionStatusMissed": "Missed",
+  "sessionStatusCancelled": "Cancelled",
+  "milestoneDone": "Milestone reached",
+  "milestoneInProgress": "Milestone in progress",
+  "milestoneUpcoming": "Upcoming milestone",
+  "sourceVerified": "Verified",
+  "sourceFoundOnline": "Found online",
+  "sourceAiSuggestion": "AI suggestion",
+  "resourceVideo": "Video",
+  "resourcePaper": "Research paper",
+  "resourceArticle": "Article",
+  "resourceTool": "Tool",
+  "resourceCourse": "Course",
+  "resourceViews": "{count} views",
+  "@resourceViews": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "resourceCitations": "{count} citations",
+  "@resourceCitations": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "resourceSave": "Save to project",
+  "resourceSaved": "Saved to project",
+  "resourceOpenYoutube": "Watch on YouTube",
+  "proposalConfirm": "Confirm",
+  "proposalNotNow": "Not now",
+  "proposalWorking": "Making the change…",
+  "proposalDone": "Done ✓",
+  "proposalFailed": "That didn't work: {message}",
+  "@proposalFailed": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "proposalCancelled": "Skipped. Nothing changed.",
+  "proposalPendingLabel": "Proposed change",
+  "proposalWouldChange": "This would change:",
+  "lockedSeePlans": "See plans",
+  "celebrationContinue": "Keep going",
+  "emptyGenericAction": "Get started",
+  "loadingSemantics": "Loading",
+  "agendaRescheduleUnfinished": "Reschedule unfinished tasks",
+  "sessionStart": "Start session",
+  "splashLoading": "Getting your SPARK ready…",
+  "splashErrorTitle": "We couldn't load your account",
+  "greetingMorning": "Good morning, {name} ✨",
+  "@greetingMorning": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "greetingAfternoon": "Good afternoon, {name} ✨",
+  "@greetingAfternoon": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "greetingEvening": "Good evening, {name} ✨",
+  "@greetingEvening": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "greetingMorningPlain": "Good morning, {name}",
+  "@greetingMorningPlain": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "greetingAfternoonPlain": "Good afternoon, {name}",
+  "@greetingAfternoonPlain": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "greetingEveningPlain": "Good evening, {name}",
+  "@greetingEveningPlain": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "greetingSkipHint": "Tap anywhere to skip",
+  "greetingLogoSemantics": "The SPARK logo smiling at you",
+  "authWelcomeTitle": "Find your spark. Build something real.",
+  "authWelcomeBody": "Turn an interest into a finished project, one small step at a time.",
+  "authContinueApple": "Continue with Apple",
+  "authContinueGoogle": "Continue with Google",
+  "authContinueEmail": "Continue with email",
+  "authLegal": "By continuing you agree to the Terms and Privacy Policy.",
+  "authTerms": "Terms",
+  "authPrivacy": "Privacy Policy",
+  "authEmailTitle": "What's your email?",
+  "authEmailBody": "We'll send you a magic link. No password needed.",
+  "authEmailLabel": "Email",
+  "authEmailInvalid": "That doesn't look like an email address.",
+  "authEmailSend": "Send my link",
+  "authCheckInboxTitle": "Check your inbox",
+  "authCheckInboxBody": "We sent a sign-in link to {email}. Open it on this device to continue.",
+  "@authCheckInboxBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "authResendIn": "Resend in {seconds}s",
+  "@authResendIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "authResend": "Resend link",
+  "authResent": "Sent! Check your inbox again.",
+  "authUseDifferentEmail": "Use a different email",
+  "authSigningIn": "Signing you in…",
+  "authConfirmEmailTitle": "Confirm your email",
+  "authConfirmEmailBody": "You opened the link on a different device. Enter the email you used so we can finish signing you in.",
+  "authLinkInvalid": "This sign-in link has expired or was already used. Request a new one.",
+  "signupTitle": "Let's set you up",
+  "signupBody": "Just a couple of things so SPARK can plan around you.",
+  "signupNameLabel": "What should we call you?",
+  "signupNameHint": "Your first name or a nickname",
+  "signupNameRequired": "Please add a name.",
+  "signupBirthYearLabel": "Birth year",
+  "signupBirthYearHelp": "We use this to keep SPARK age-appropriate. It's never shown to anyone.",
+  "signupTimezoneLabel": "Time zone",
+  "signupTimezoneHelp": "Detected automatically. Change it if it's wrong.",
+  "signupTimezoneSearch": "Search time zones",
+  "signupSubmit": "Continue",
+  "signupUnderageTitle": "SPARK is for ages 13 and up",
+  "signupUnderageBody": "Thanks so much for your interest! SPARK isn't available for people under 13 yet, so we didn't create an account. We'd love to see you back when you're 13.",
+  "signupUnderageOk": "Okay",
+  "signOut": "Sign out",
+  "onboardingStepSemantics": "Step {current} of {total}",
+  "@onboardingStepSemantics": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "onboardingWelcomeTitle": "Hi {name}! Let's find your spark.",
+  "@onboardingWelcomeTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardingWelcomeBody": "In a few minutes you'll have a project you care about and a plan that fits your life. One thing at a time, promise.",
+  "onboardingWelcomeCta": "Let's go",
+  "pathChoiceTitle": "Where are you starting?",
+  "pathChoiceBody": "Both paths end with a real project and a plan.",
+  "pathHasIdeaTitle": "I already have an idea",
+  "pathHasIdeaBody": "Tell me about it and I'll ask a few questions to shape it.",
+  "pathFindIdeaTitle": "Help me find an idea",
+  "pathFindIdeaBody": "Answer quick questions and get project ideas made for you.",
+  "interviewTitle": "Tell me about your idea",
+  "interviewIntro": "What do you want to make, start or explore? A sentence or two is plenty.",
+  "interviewHint": "Type your answer…",
+  "interviewSend": "Send",
+  "interviewTyping": "Thinking…",
+  "interviewSoFar": "Your project so far",
+  "interviewGuessed": "We guessed this, tap to edit",
+  "interviewReview": "Review my project",
+  "interviewReviewTitle": "Here's your project",
+  "interviewReviewBody": "Change anything that doesn't sound right. You can edit it later too.",
+  "interviewConfirm": "Confirm project",
+  "interviewEditField": "Edit {field}",
+  "@interviewEditField": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  "interviewEmptyField": "Not answered yet",
+  "interviewYou": "You",
+  "fieldTitle": "Project name",
+  "fieldGoal": "Goal",
+  "fieldMotivation": "Why it matters",
+  "fieldAudience": "Who it's for",
+  "fieldScale": "Scale",
+  "fieldSuccess": "What success looks like",
+  "fieldFinishDate": "Finish by",
+  "fieldSkills": "Skills and resources",
+  "fieldConstraints": "Constraints",
+  "fieldProjectType": "Project type",
+  "scaleSmall": "Small",
+  "scaleMedium": "Medium",
+  "scaleLarge": "Large",
+  "assessmentProgress": "Question {current} of {total}",
+  "@assessmentProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "assessmentSaveExit": "Save and exit",
+  "likertStronglyDisagree": "Strongly disagree",
+  "likertDisagree": "Disagree",
+  "likertNeutral": "Not sure",
+  "likertAgree": "Agree",
+  "likertStronglyAgree": "Strongly agree",
+  "assessmentPausedTitle": "Your answers are saved",
+  "assessmentPausedBody": "Take a break. When you come back you'll pick up right where you left off.",
+  "assessmentResume": "Keep going",
+  "assessmentFinishing": "Finding your matches…",
+  "recommendationsTitle": "Ideas picked for you",
+  "recommendationsBody": "Tap one to see more. There's no wrong choice.",
+  "recommendationsLoading1": "Looking at what lights you up…",
+  "recommendationsLoading2": "Mixing your interests together…",
+  "recommendationsLoading3": "Finding niche ideas you can actually finish…",
+  "recommendationsLoading4": "Almost there…",
+  "recommendationsMore": "Generate more ideas",
+  "recommendationsMoreLoading": "Coming up with more ideas…",
+  "recommendationsEmpty": "No ideas yet",
+  "difficultyStarter": "Starter",
+  "difficultyStretch": "Stretch",
+  "difficultyAmbitious": "Ambitious",
+  "recommendationHours": "About {hours} hours",
+  "@recommendationHours": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "recommendationWhy": "Why it matches you",
+  "recommendationCreate": "What you'll create",
+  "recommendationFirstStep": "Suggested first step",
+  "recommendationAudience": "Who it helps",
+  "recommendationParentNote": "Heads up",
+  "recommendationChoose": "Choose this project",
+  "recommendationMatch": "{percent} match",
+  "@recommendationMatch": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "projectPickedTitle": "You picked your project!",
+  "projectPickedBody": "\"{title}\" is officially yours. Let's make a plan that fits your life.",
+  "@projectPickedBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deadlineTitle": "When do you want to finish?",
+  "deadlineBody": "Pick a date at least a week away. You can change it later.",
+  "deadlinePick": "Pick a date",
+  "deadlineOneMonth": "1 month",
+  "deadlineThreeMonths": "3 months",
+  "deadlineSixMonths": "6 months",
+  "deadlineSchoolYear": "End of school year",
+  "deadlineSelected": "Finish by {date}",
+  "@deadlineSelected": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "deadlineTooSoon": "Pick a date at least 7 days from today.",
+  "availabilityTitle": "When can you work on it?",
+  "availabilityBody": "Pick the days and times that usually work. SPARK plans around them.",
+  "availabilityAddTime": "Add a time",
+  "availabilityStart": "Starts",
+  "availabilitySessionLength": "Session length",
+  "availabilityRemoveTime": "Remove this time",
+  "availabilityNone": "Pick at least one day and time.",
+  "availabilitySummaryNone": "No time picked yet",
+  "availabilitySlotLabel": "{time} for {duration}",
+  "@availabilitySlotLabel": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "characterTitle": "Pick your companion",
+  "characterBody": "They'll cheer you on, remind you and help when you're stuck.",
+  "characterPreview": "How they'd sound",
+  "characterLocked": "Included with Premium",
+  "notificationsTitle": "How should we nudge you?",
+  "notificationsBody": "Everything is on to start. Turn off anything you don't want.",
+  "notifDailyQuote": "Daily quote",
+  "notifDailyQuoteBody": "A short boost each morning.",
+  "notifSessionReminder": "Work session reminders",
+  "notifSessionReminderBody": "{minutes} minutes before each session.",
+  "@notifSessionReminderBody": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "notifTaskReminders": "Task and deadline reminders",
+  "notifTaskRemindersBody": "So nothing sneaks up on you.",
+  "notifWeeklyCheckin": "Weekly check-in",
+  "notifWeeklyCheckinBody": "Sunday evening, about a minute long.",
+  "notifMonthlyReflection": "Monthly reflection",
+  "notifMonthlyReflectionBody": "Look back at what you built this month.",
+  "notifCelebrations": "Celebrations",
+  "notifCelebrationsBody": "Badges, streaks and milestones.",
+  "notifQuietHours": "Quiet hours",
+  "notifQuietHoursBody": "No notifications between these times.",
+  "notifQuietFrom": "From",
+  "notifQuietTo": "To",
+  "notifTurnOn": "Turn on notifications",
+  "notifNotNow": "Maybe later",
+  "notifDeniedNote": "No problem. You can turn notifications on anytime in Settings.",
+  "appearanceTitle": "Light or dark?",
+  "appearanceBody": "You can switch anytime in Settings.",
+  "appearanceLight": "Light",
+  "appearanceDark": "Dark",
+  "appearanceSystem": "Match my phone",
+  "appearancePreviewTask": "Sketch the cover",
+  "planBuilding": "Building your plan step by step…",
+  "planBuilding2": "Breaking your project into small steps…",
+  "planBuilding3": "Fitting the work into your week…",
+  "planBuilding4": "Adding milestones to celebrate…",
+  "planNotFeasibleTitle": "Your plan needs a little more room",
+  "planNotFeasibleBody": "With the time you have before your deadline, the whole project won't fit. Pick what feels right:",
+  "planOptionMoveDeadline": "Move the deadline to {date}",
+  "@planOptionMoveDeadline": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "planOptionMoveDeadlineBody": "Same project, a little more time.",
+  "planOptionAddTime": "Add about {minutes} minutes a week",
+  "@planOptionAddTime": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "planOptionAddTimeBody": "Add more availability and keep your deadline.",
+  "planOptionTrimScope": "Trim the scope",
+  "planOptionTrimScopeBody": "Skip these parts for now:",
+  "planRegenerate": "Make my plan",
+  "planReadyTitle": "Your plan is ready!",
+  "planReadyBody": "{tasks} tasks across {phases} phases. Let's take the first step.",
+  "@planReadyBody": {
+    "placeholders": {
+      "tasks": {
+        "type": "int"
+      },
+      "phases": {
+        "type": "int"
+      }
+    }
+  },
+  "planLetsGo": "Let's get started",
+  "planPreviewTitle": "Your plan preview",
+  "planPreviewFirstTasks": "Your first tasks",
+  "planPreviewMore": "+{count} more tasks with a full plan",
+  "@planPreviewMore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planContinueBasic": "Continue with Basic",
+  "tutorialNext": "Next",
+  "tutorialSkip": "Skip tour",
+  "tutorialDone": "Got it!",
+  "tutorialTabsTitle": "Your four home bases",
+  "tutorialTabsBody": "Dashboard for today, Project for your plan, Journal for your story, Profile for your wins.",
+  "tutorialProgressTitle": "Your progress bar",
+  "tutorialProgressBody": "The solid part is done. The striped part is where you'll be by Sunday if you stick to the plan.",
+  "tutorialChecklistTitle": "Your next 5 tasks",
+  "tutorialChecklistBody": "Small, clear steps. Check one off and watch your progress move.",
+  "tutorialCalendarTitle": "Your calendar",
+  "tutorialCalendarBody": "Dots are work sessions, diamonds are milestones. Tap a day to see its agenda.",
+  "tutorialCompanionTitle": "Your companion",
+  "tutorialCompanionBody": "Stuck or behind? Ask anything. It already knows your project.",
+  "tutorialJournalTitle": "Your journal",
+  "tutorialJournalBody": "Snap photos as you go. They become your project's story.",
+  "tutorialSettingsTitle": "Settings",
+  "tutorialSettingsBody": "Colors, notifications, schedule and more live behind the gear.",
+  "planReadyBodyTasks": "{tasks} small tasks, ready when you are. Let's take the first step.",
+  "@planReadyBodyTasks": {
+    "placeholders": {
+      "tasks": {
+        "type": "int"
+      }
+    }
+  },
+  "adLabel": "Ad",
+  "settingsReminderLead": "Remind me before sessions",
+  "settingsMaxPerDay": "Most notifications per day",
+  "settingsMaxPerDayValue": "Up to {count} a day",
+  "@settingsMaxPerDayValue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "celebrateMilestoneTitle": "Milestone reached! 🎉",
+  "celebrateBadgeTitle": "You earned a badge!",
+  "celebrateProjectCompleteTitle": "You finished your project!",
+  "celebrateProjectCompleteBody": "From an idea to something real. That's huge. Your scrapbook is being made.",
+  "changeMove": "Move \"{title}\" from {from} to {to}",
+  "@changeMove": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "changeMoveTo": "Move \"{title}\" to {to}",
+  "@changeMoveTo": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "changeAdd": "Add \"{title}\"",
+  "@changeAdd": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "changeRemove": "Set aside \"{title}\" (your finished work is kept)",
+  "@changeRemove": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "changeDeadline": "New deadline: {date}",
+  "@changeDeadline": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "proposalChooseOption": "This no longer fits your time. Pick one:",
+  "proposalDefaultTitle": "A new plan that fits your time",
+  "proposalSheetTitle": "Review the change",
+  "journalPromptTitle": "Nice work! ✨",
+  "journalPromptBody": "Add a photo to your journal?",
+  "journalPromptAdd": "Add photo",
+  "taskCompletedSnack": "Task done!",
+  "taskUndone": "Task marked as not done.",
+  "dashboardProjectCardSemantics": "Open your project",
+  "dashboardCurrentMilestone": "Now: {milestone}",
+  "@dashboardCurrentMilestone": {
+    "placeholders": {
+      "milestone": {
+        "type": "String"
+      }
+    }
+  },
+  "dashboardNextSession": "Next work session",
+  "dashboardNextSessionNone": "No sessions coming up",
+  "dashboardNextSessionNoneBody": "Your schedule is clear. Add availability to plan more work.",
+  "dashboardFirstTask": "First up: {title}",
+  "@dashboardFirstTask": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "dashboardTodaysTasks": "Today's tasks",
+  "dashboardNoTasks": "All caught up!",
+  "dashboardNoTasksBody": "No tasks waiting right now. Enjoy it or peek at what's next.",
+  "dashboardSeeAgenda": "See what's next",
+  "streakDaily": "{count}-day streak",
+  "@streakDaily": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "streakWeekly": "{count}-week streak",
+  "@streakWeekly": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "streakSemantics": "Streaks: {daily} days, {weekly} weeks. Open badges.",
+  "@streakSemantics": {
+    "placeholders": {
+      "daily": {
+        "type": "int"
+      },
+      "weekly": {
+        "type": "int"
+      }
+    }
+  },
+  "companionCardTitle": "Ask {name} anything about your project",
+  "@companionCardTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "companionCardTitleDefault": "Ask your companion anything about your project",
+  "companionPromptToday": "What should I work on today?",
+  "companionPromptStuck": "I'm stuck",
+  "companionPromptBehind": "I'm behind this week",
+  "bannerProposal": "You missed a session. Here's a new plan that fits your time.",
+  "bannerProposalGeneric": "There's a schedule change waiting for you.",
+  "bannerProposalAction": "Review",
+  "bannerCheckin": "Your weekly check-in is ready. It takes about a minute.",
+  "bannerCheckinAction": "Check in",
+  "bannerReflection": "Time for your monthly reflection.",
+  "bannerReflectionAction": "Reflect",
+  "bannerAtRisk": "Your schedule is at risk of missing the deadline.",
+  "bannerAtRiskAction": "Adjust plan",
+  "bannerDowngrade": "Your plan changed. Your work is safe, some features are locked.",
+  "bannerDowngradeAction": "Details",
+  "dashboardEmptyTitle": "Let's find your spark",
+  "dashboardEmptyBody": "Pick a new project and SPARK will plan it with you.",
+  "dashboardEmptyAction": "Start a project",
+  "dashboardDate": "{date}",
+  "@dashboardDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionWhen": "{day} · {time}",
+  "@sessionWhen": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "calendarPrevious": "Previous",
+  "calendarNext": "Next",
+  "calendarExpand": "Show the whole month",
+  "calendarSessions": "{count, plural, =1{1 work session} other{{count} work sessions}}",
+  "@calendarSessions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "calendarAllDone": "all sessions done",
+  "calendarMissed": "missed session",
+  "calendarMilestone": "milestone target",
+  "calendarDeadline": "project deadline",
+  "calendarLegendSession": "Work session",
+  "calendarLegendMilestone": "Milestone",
+  "calendarLegendDeadline": "Deadline",
+  "calendarLegendMissed": "Missed",
+  "projectViewAgenda": "View agenda",
+  "projectNoPlanTitle": "No plan yet",
+  "projectNoPlanBody": "Once your plan is ready, your calendar and tasks show up here.",
+  "projectDates": "{start} → {end}",
+  "@projectDates": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "projectDaysLeft": "{count, plural, =0{Due today} =1{1 day left} other{{count} days left}}",
+  "@projectDaysLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "projectOnTrack": "On track",
+  "projectAtRisk": "At risk",
+  "projectPhase": "Phase: {phase}",
+  "@projectPhase": {
+    "placeholders": {
+      "phase": {
+        "type": "String"
+      }
+    }
+  },
+  "projectProgress": "Progress",
+  "projectTimeSummary": "{done} done · {left} to go",
+  "@projectTimeSummary": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "left": {
+        "type": "String"
+      }
+    }
+  },
+  "projectCurrentTasks": "Current tasks",
+  "projectTimelinePreview": "Timeline",
+  "projectOpenTimeline": "Open full timeline",
+  "projectHelpSection": "Resources and help",
+  "projectAskCompanion": "Ask your companion",
+  "projectSavedResources": "{count, plural, =0{No saved resources yet} =1{1 saved resource} other{{count} saved resources}}",
+  "@projectSavedResources": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "projectBrowseResources": "Browse resources",
+  "projectOpportunities": "Opportunities near you",
+  "projectPlanActions": "Plan actions",
+  "planActionAdjust": "Adjust plan",
+  "planActionAvailability": "Edit availability",
+  "planActionDeadline": "Change deadline",
+  "planActionRegenerate": "Regenerate future tasks",
+  "planActionsNote": "You'll see a preview of every change first. Finished work is always kept.",
+  "previewLockedTitle": "Unlock your full plan",
+  "previewLockedBody": "See every task, your calendar and checklists with Standard or Premium.",
+  "timelineDone": "Done",
+  "timelineInProgress": "In progress",
+  "timelineUpcoming": "Upcoming",
+  "timelineStart": "Start",
+  "timelineTarget": "Target",
+  "timelineUpcomingDeadlines": "Upcoming deadlines",
+  "timelineWork": "Work",
+  "timelineEstimated": "Estimated progress",
+  "timelineEmpty": "Your timeline will appear once your plan is ready.",
+  "lockedResourcesBenefit": "Get videos, guides, opportunities and an AI companion who knows your project.",
+  "resourceProjectTypeFallback": "project",
+  "agendaDay": "Day",
+  "agendaWeek": "Week",
+  "agendaMonth": "Month",
+  "agendaPrevious": "Previous",
+  "agendaNext": "Next",
+  "agendaEmptyDay": "No work planned. Enjoy your day!",
+  "agendaOtherTasks": "Also planned",
+  "agendaMilestoneItem": "Milestone: {title}",
+  "@agendaMilestoneItem": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaDeadlineItem": "Project deadline",
+  "agendaWeekTotals": "{done} of {total} tasks done · {planned} planned",
+  "@agendaWeekTotals": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "planned": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaWeekRange": "{start} – {end}",
+  "@agendaWeekRange": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaSessionCount": "{count, plural, =1{1 session} other{{count} sessions}}",
+  "@agendaSessionCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "agendaTaskCount": "{count, plural, =1{1 task} other{{count} tasks}}",
+  "@agendaTaskCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "agendaMonthEmpty": "Nothing planned this month.",
+  "agendaMoveDay": "Move to another day",
+  "agendaFindTime": "Find a new time for this",
+  "agendaOpenTask": "Open task",
+  "agendaDayFull": "That day is already full",
+  "agendaDayFullBody": "{day} has {planned} planned out of {available} available. Pick another day or let SPARK find a time.",
+  "@agendaDayFullBody": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "planned": {
+        "type": "String"
+      },
+      "available": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaFinding": "Finding a time that fits…",
+  "agendaGcalSynced": "Synced to Google Calendar · {time}",
+  "@agendaGcalSynced": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaGcalNever": "Synced to Google Calendar",
+  "agendaGcalError": "Google Calendar sync problem: {message}",
+  "@agendaGcalError": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "agendaGcalSyncing": "Syncing with Google Calendar…",
+  "agendaNoAvailability": "You haven't set any available days yet.",
+  "agendaMissedTag": "Missed",
+  "taskDoneWhen": "You're done when…",
+  "taskEstimate": "Estimated time",
+  "taskPriority": "Priority",
+  "taskPrerequisites": "Do these first",
+  "taskPrereqDone": "Done",
+  "taskPrereqPending": "Not done yet",
+  "taskSuggestedDate": "Planned for",
+  "taskSession": "Work session",
+  "taskMilestone": "Milestone",
+  "taskMarkComplete": "Mark complete",
+  "taskStartFocus": "Start focus session",
+  "taskAskCompanion": "Ask companion about this task",
+  "taskReschedule": "Reschedule",
+  "taskAddJournal": "Add journal entry",
+  "taskUndo": "Mark as not done",
+  "taskNotFound": "This task isn't in your current plan anymore.",
+  "taskStatusDone": "Done",
+  "taskStatusObsolete": "Set aside after a plan change",
+  "taskStatusSkipped": "Skipped",
+  "taskNoDescription": "No extra details for this one.",
+  "adjustIntro": "Every change shows you a preview first. Finished tasks and journal entries are never deleted.",
+  "adjustWhatChange": "What would you like to change?",
+  "adjustWhatChangeHint": "e.g. \"Make it a 10-page zine instead of 20\" or \"Add a launch event\"",
+  "adjustKindScope": "Change the scope",
+  "adjustKindGoal": "New goal",
+  "adjustPreview": "Preview changes",
+  "adjustCurrentDeadline": "Current deadline: {date}",
+  "@adjustCurrentDeadline": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "adjustNewDeadline": "New deadline",
+  "adjustPickDeadline": "Pick a new deadline",
+  "adjustRegenerateBody": "SPARK will rebuild your upcoming tasks around your current progress and availability. Completed work stays exactly as it is.",
+  "adjustAvailabilitySaved": "Availability saved. Your plan already fits.",
+  "adjustSaveAvailability": "Save availability",
+  "adjustLoadingPreview": "Working out what would change…",
+  "focusTitle": "Focus mode",
+  "focusCurrentTask": "Now working on",
+  "focusDoneWithTask": "Done with this task",
+  "focusPause": "Pause",
+  "focusResume": "Resume",
+  "focusTimerSemantics": "{time} left in this session",
+  "@focusTimerSemantics": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "focusTimeUp": "Time's up! Great focus.",
+  "focusAskCompanion": "Ask companion",
+  "focusEnd": "End session",
+  "focusEndConfirmTitle": "End this session?",
+  "focusEndConfirmBody": "Your progress is saved. Anything unfinished stays on your list.",
+  "focusAllDone": "Every task in this session is done!",
+  "focusUpNext": "Up next: {title}",
+  "@focusUpNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "focusSummaryTitle": "Session complete",
+  "focusSummaryTasks": "{count, plural, =0{No tasks checked off this time, and that's okay.} =1{You finished 1 task.} other{You finished {count} tasks.}}",
+  "@focusSummaryTasks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "focusSummaryTime": "You focused for {time}.",
+  "@focusSummaryTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "focusFinish": "Finish",
+  "focusNotFound": "We couldn't find this session. It may have been rescheduled.",
+  "focusClose": "Close focus mode",
+  "companionKnows": "Knows your project: {title}",
+  "@companionKnows": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "companionKnowsTitle": "What your companion knows",
+  "companionKnowsBody": "It reads your plan and progress directly, so you never have to paste project details.",
+  "companionKnowsProject": "Project",
+  "companionKnowsPhase": "Current phase",
+  "companionKnowsMilestone": "Current milestone",
+  "companionKnowsTasks": "Next tasks",
+  "companionKnowsDeadline": "Deadline",
+  "companionHistory": "Past chats",
+  "companionNewChat": "New chat",
+  "companionNoHistory": "No past chats yet.",
+  "companionHint": "Ask anything about your project…",
+  "companionStop": "Stop",
+  "companionStopped": "Stopped",
+  "companionHelpingWith": "Helping with: {title}",
+  "@companionHelpingWith": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "companionEmptyTitle": "Hi! What can I help with?",
+  "companionEmptyBody": "I know your plan, your progress and what's coming up.",
+  "companionPromptStart": "Help me start my next task",
+  "companionPromptResources": "Find me a good tutorial",
+  "companionPromptShare": "How can I share my project?",
+  "companionToolWorking": "Checking your project…",
+  "companionToolTasks": "Checking your tasks…",
+  "companionToolCalendar": "Looking at your calendar…",
+  "companionToolProgress": "Checking your progress…",
+  "companionToolSearch": "Searching for resources…",
+  "companionToolOpportunities": "Looking for opportunities…",
+  "companionCrisisTitle": "You're not alone",
+  "companionCrisisBody": "If you're in danger or thinking about hurting yourself, please reach out right now. Talking to a trusted adult can help too.",
+  "companionCrisisCall": "Call 988",
+  "companionCrisisText": "Text 988",
+  "companionCrisisLine": "988 Suicide & Crisis Lifeline (US)",
+  "companionLocked": "Your AI companion is part of Premium.",
+  "companionYou": "You",
+  "companionSaveOpportunity": "Save to project",
+  "opportunityDeadline": "Deadline: {date}",
+  "@opportunityDeadline": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "opportunityRemote": "Remote",
+  "opportunityEligibility": "Who can apply: {text}",
+  "@opportunityEligibility": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "opportunityAiNote": "This is an idea to look into, not a specific listing.",
+  "resourcesFindTab": "Find",
+  "resourcesSavedTab": "Saved",
+  "resourcesSearchHint": "What do you need help with?",
+  "resourcesSearch": "Search",
+  "resourcesCategories": "Browse by topic",
+  "resourcesVideos": "Videos",
+  "resourcesArticles": "Articles and guides",
+  "resourcesPapers": "Research papers",
+  "resourcesTools": "Tools",
+  "resourcesAskCompanion": "Ask the companion instead",
+  "resourcesSearching": "Finding real, working resources…",
+  "resourcesNoResults": "Nothing solid came up for that. Try different words or ask your companion.",
+  "resourcesSavedEmpty": "Save videos, guides and papers here so they're easy to find.",
+  "resourcesNote": "Note",
+  "resourcesAddNote": "Add a note",
+  "resourcesEditNote": "Edit note",
+  "resourcesRemoveConfirm": "Remove this from your saved resources?",
+  "resourcesLocked": "The Resource Center is part of Premium: real videos, guides and research picked for your project.",
+  "opportunitiesIntro": "Find competitions, programs and groups. Type a city or region, or look for remote options.",
+  "opportunitiesLocationHint": "City or region (optional)",
+  "opportunitiesUseSaved": "Use my saved location",
+  "opportunitiesRemoteOnly": "Remote only",
+  "opportunitiesSearch": "Find opportunities",
+  "opportunitiesSearching": "Looking for real opportunities…",
+  "opportunitiesEmpty": "Nothing came up. Try a nearby city or include remote options.",
+  "opportunitiesStrategies": "Ways to find more",
+  "opportunitiesTemplate": "Outreach email you can personalize",
+  "opportunitiesCopyTemplate": "Copy template",
+  "opportunitiesCopied": "Copied to clipboard",
+  "opportunitiesLocked": "Opportunities are part of Premium.",
+  "oppTypeCompetition": "Competitions",
+  "oppTypeGrant": "Grants",
+  "oppTypeInternship": "Internships",
+  "oppTypeWorkshop": "Workshops",
+  "oppTypeShowcase": "Showcases",
+  "oppTypeMentorship": "Mentorship",
+  "oppTypeResearch": "Research programs",
+  "oppTypeCommunity": "Community orgs",
+  "journalAddEntry": "Add to journal",
+  "journalCamera": "Take a photo",
+  "journalLibrary": "Choose from photos",
+  "journalFile": "Upload a PDF",
+  "journalCaption": "Caption",
+  "journalCaptionHint": "What did you make or learn?",
+  "journalUpload": "Add to journal",
+  "journalUploading": "Uploading… {percent}",
+  "@journalUploading": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "journalPreparing": "Getting your file ready…",
+  "journalAdded": "Added to your journal!",
+  "journalTooBigImage": "That photo is too big (max 10 MB). Try a different one.",
+  "journalTooBigPdf": "That PDF is too big (max 15 MB).",
+  "journalUnsupported": "SPARK can add photos (JPG, PNG, WebP, HEIC) and PDFs.",
+  "journalProcessing": "Processing…",
+  "journalFailed": "This upload didn't work. Try adding it again.",
+  "journalNewestFirst": "Newest first",
+  "journalOldestFirst": "Oldest first",
+  "journalEmpty": "Finish a task and snap a photo to start your story.",
+  "journalMilestoneMarker": "Milestone reached: {title}",
+  "@journalMilestoneMarker": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "journalBadgeMarker": "Badge earned: {title}",
+  "@journalBadgeMarker": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "journalLinkedTask": "From: {title}",
+  "@journalLinkedTask": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "journalScrapbooks": "Scrapbooks",
+  "journalScrapbookCompiling": "Being made…",
+  "journalMakeYearInReview": "Make my year in review",
+  "journalScrapbookRequested": "Your scrapbook is being made. It'll show up here when it's ready.",
+  "journalScrapbookLocked": "Scrapbooks are part of Premium.",
+  "journalLocked": "Your progress journal is part of Premium.",
+  "journalEntryNotFound": "This entry isn't available anymore.",
+  "journalDelete": "Delete entry",
+  "journalDeleteConfirm": "Delete this journal entry?",
+  "journalDeleteBody": "The photo or file is removed for good. This can't be undone.",
+  "journalCaptionSaved": "Caption saved",
+  "journalPdf": "PDF",
+  "journalImageSemantics": "Journal photo: {caption}",
+  "@journalImageSemantics": {
+    "placeholders": {
+      "caption": {
+        "type": "String"
+      }
+    }
+  },
+  "journalSelectEntry": "Pick an entry to see it here.",
+  "scrapbookNarrative": "Your story",
+  "scrapbookHighlights": "Highlights",
+  "scrapbookYearTitle": "{year} in review",
+  "@scrapbookYearTitle": {
+    "placeholders": {
+      "year": {
+        "type": "int"
+      }
+    }
+  },
+  "scrapbookNoScreenshotNote": "Scrapbooks stay inside SPARK.",
+  "scrapbookFailed": "We couldn't make this scrapbook. Please try again later.",
+  "scrapbookPage": "Page {current} of {total}",
+  "@scrapbookPage": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "profileMemberSince": "Member since {date}",
+  "@profileMemberSince": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "profileChangeCharacter": "Change your companion",
+  "profileStatsTitle": "Your wins",
+  "profileStatTasks": "Tasks done",
+  "profileStatHours": "Hours of work",
+  "profileStatStreak": "Day streak",
+  "profileStatWeekStreak": "Week streak",
+  "profileStatMilestones": "Milestones",
+  "profileHoursValue": "{hours}",
+  "@profileHoursValue": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "profileBadges": "Badges",
+  "profilePoints": "{points} points",
+  "@profilePoints": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "profileChallenges": "Challenges",
+  "profileChallengeJoin": "Join",
+  "profileChallengeJoined": "Joined",
+  "profileChallengeEnds": "Ends {date}",
+  "@profileChallengeEnds": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "profileChallengeProgress": "{percent} complete",
+  "@profileChallengeProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "profileNoChallenges": "No challenges right now. Check back soon!",
+  "profileLeaderboard": "Leaderboard",
+  "profileLeaderboardOff": "Off. Only you see your points.",
+  "profileLeaderboardOn": "On, with your pseudonym",
+  "profileReflections": "Reflections and check-ins",
+  "profilePastProjects": "Past projects",
+  "profileSubscription": "Subscription",
+  "profileCommunity": "Community",
+  "planNameLaunch": "Premium (launch access)",
+  "planNameBasic": "Basic",
+  "planNameStandard": "Standard",
+  "planNamePremium": "Premium",
+  "badgesEarned": "Earned {date}",
+  "@badgesEarned": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "badgesLocked": "Not earned yet",
+  "badgesHowTo": "How to earn: {text}",
+  "@badgesHowTo": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "badgesEmpty": "Badges will appear here as you make progress.",
+  "leaderboardTitle": "Weekly leaderboard",
+  "leaderboardOptIn": "Show me on the leaderboard",
+  "leaderboardPrivacy": "If you join, others see only your pseudonym, your companion's picture and your weekly points. Never your name, school, location or project details. You can leave anytime.",
+  "leaderboardTeen": "Teen board",
+  "leaderboardAdult": "Adult board",
+  "leaderboardEmpty": "This week's board isn't ready yet. Points from consistent work count most!",
+  "leaderboardPoints": "{points} pts",
+  "@leaderboardPoints": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "leaderboardRank": "Rank {rank}",
+  "@leaderboardRank": {
+    "placeholders": {
+      "rank": {
+        "type": "int"
+      }
+    }
+  },
+  "leaderboardOffBody": "The leaderboard is optional and off by default.",
+  "reflectionsTitle": "Your reflections",
+  "reflectionsCheckins": "Weekly check-ins",
+  "reflectionsMonthly": "Monthly reflections",
+  "reflectionsEmpty": "Nothing here yet. Your check-ins and reflections will show up here.",
+  "reflectionsStartCheckin": "Do a weekly check-in",
+  "reflectionsStartMonthly": "Write a monthly reflection",
+  "reflectionLearned": "What I learned",
+  "reflectionChange": "What I'd change",
+  "reflectionGoals": "Goals for next month",
+  "checkinFeeling": "Feeling: {value}/5",
+  "@checkinFeeling": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "pastProjectsEmpty": "Finished and paused projects will live here.",
+  "pastProjectStatusCompleted": "Completed",
+  "pastProjectStatusPaused": "Paused",
+  "pastProjectStatusAbandoned": "Set aside",
+  "pastProjectStatusActive": "Active",
+  "pastProjectOpenScrapbook": "Open scrapbook",
+  "pastProjectCompletedOn": "Finished {date}",
+  "@pastProjectCompletedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "checkinTitle": "Weekly check-in",
+  "checkinQ1": "How are you feeling about your project?",
+  "checkinQ2": "How's progress going this week?",
+  "checkinQ3": "What's been hard lately?",
+  "checkinQ3Hint": "Anything at all. Even \"nothing\" is a good answer.",
+  "checkinQ4": "Is your upcoming schedule still realistic?",
+  "checkinYes": "Yes, it works",
+  "checkinNo": "Not really",
+  "checkinFeeling1": "Rough",
+  "checkinFeeling2": "Meh",
+  "checkinFeeling3": "Okay",
+  "checkinFeeling4": "Good",
+  "checkinFeeling5": "Great",
+  "checkinProgress1": "Stuck",
+  "checkinProgress2": "Slow",
+  "checkinProgress3": "Steady",
+  "checkinProgress4": "Good",
+  "checkinProgress5": "Flying",
+  "checkinSubmit": "Send check-in",
+  "checkinThanks": "Thanks for checking in!",
+  "checkinDone": "Back to my dashboard",
+  "checkinNoProject": "Start a project to do weekly check-ins.",
+  "monthlyTitle": "Monthly reflection",
+  "monthlySummary": "Your month in numbers",
+  "monthlyTasks": "{count, plural, =1{1 task done} other{{count} tasks done}}",
+  "@monthlyTasks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "monthlyTime": "{time} of work",
+  "@monthlyTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "monthlyMilestones": "Milestones",
+  "monthlyBadges": "Badges",
+  "monthlyChallenges": "Challenges",
+  "monthlyPriorities": "Coming up next",
+  "monthlyLearnedPrompt": "What did you learn this month?",
+  "monthlyChangePrompt": "What would you do differently?",
+  "monthlyGoalsPrompt": "What are your goals for next month?",
+  "monthlySave": "Save reflection",
+  "monthlySaved": "Reflection saved. Nice work looking back!",
+  "monthlyPrevMonth": "Previous month",
+  "monthlyNextMonth": "Next month",
+  "plansTitle": "Choose your plan",
+  "plansBody": "Every plan keeps your work safe. Upgrade or cancel anytime.",
+  "plansAllPremium": "Everything in SPARK is unlocked for you right now. Enjoy!",
+  "plansFree": "Free",
+  "plansTrial": "{days}-day free trial",
+  "@plansTrial": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "plansStartTrial": "Start free trial · then {price}/{period}",
+  "@plansStartTrial": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      },
+      "period": {
+        "type": "String"
+      }
+    }
+  },
+  "plansSubscribe": "Subscribe · {price}/{period}",
+  "@plansSubscribe": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      },
+      "period": {
+        "type": "String"
+      }
+    }
+  },
+  "plansCurrent": "Your plan",
+  "plansTerms": "Payment is charged to your app store account when you confirm. The subscription renews automatically at the price shown unless you cancel at least 24 hours before the end of the current period. Cancel anytime in your store account settings.",
+  "plansTrialTerms": "After the free trial ends you'll be charged {price} every {period} unless you cancel before the trial ends.",
+  "@plansTrialTerms": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      },
+      "period": {
+        "type": "String"
+      }
+    }
+  },
+  "plansPriceUnavailable": "Price not available right now",
+  "plansStoreUnavailable": "Purchases aren't available on this device.",
+  "plansPurchasing": "Confirming with the store…",
+  "plansPending": "Thanks! Your plan will update in a moment.",
+  "plansRestore": "Restore purchases",
+  "plansRestored": "Purchases restored.",
+  "plansCompare": "Compare plans",
+  "periodWeek": "week",
+  "periodMonth": "month",
+  "periodYear": "year",
+  "subscriptionCurrent": "Current plan",
+  "subscriptionRenews": "Renews {date}",
+  "@subscriptionRenews": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "subscriptionExpires": "Ends {date}",
+  "@subscriptionExpires": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "subscriptionTrialEnds": "Free trial ends {date}",
+  "@subscriptionTrialEnds": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "subscriptionManage": "Manage subscription",
+  "subscriptionManageUnavailable": "Manage your subscription in your app store account settings.",
+  "subscriptionLaunch": "During launch every feature is free for everyone.",
+  "subscriptionGrant": "Bonus access: {plan} until {date}",
+  "@subscriptionGrant": {
+    "placeholders": {
+      "plan": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "subscriptionDowngradeTitle": "What changed",
+  "subscriptionDowngradeLocked": "Locked for now: {features}",
+  "@subscriptionDowngradeLocked": {
+    "placeholders": {
+      "features": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsAppearance": "Appearance",
+  "settingsAppearanceBody": "Light, dark, themes and colors",
+  "settingsThemes": "Themes",
+  "settingsThemeDefault": "SPARK default",
+  "settingsThemeSeasonal": "Seasonal",
+  "settingsThemeEarned": "Earned",
+  "settingsThemeLockedEarned": "Unlock by staying consistent",
+  "settingsCustomColors": "Custom colors",
+  "settingsCustomColorsBody": "Pick your own colors (Premium)",
+  "settingsCharacter": "Companion character",
+  "settingsNotifications": "Notifications",
+  "settingsNotificationsBody": "Reminders, quiet hours and more",
+  "settingsNotifPermissionOff": "Notifications are turned off for SPARK on this device.",
+  "settingsOpenSystemSettings": "Open system settings",
+  "settingsSchedule": "Schedule",
+  "settingsScheduleBody": "Availability, deadline and Google Calendar",
+  "settingsPrivacy": "Privacy",
+  "settingsPrivacyBody": "Leaderboard, community, location",
+  "settingsAccount": "Account",
+  "settingsHelp": "Help",
+  "settingsSaved": "Saved",
+  "colorsIntro": "Pick a color for each part of the app. We check that text stays easy to read.",
+  "colorsLightMode": "Light mode",
+  "colorsDarkMode": "Dark mode",
+  "colorsPreview": "Preview",
+  "colorsContrastWarning": "{fg} on {bg} is hard to read ({ratio}:1, needs 4.5:1).",
+  "@colorsContrastWarning": {
+    "placeholders": {
+      "fg": {
+        "type": "String"
+      },
+      "bg": {
+        "type": "String"
+      },
+      "ratio": {
+        "type": "String"
+      }
+    }
+  },
+  "colorsUseSuggested": "Use a readable shade",
+  "colorsAllGood": "All text passes the readability check.",
+  "colorsSave": "Save colors",
+  "colorsReset": "Reset to default",
+  "colorsResetDone": "Colors reset",
+  "colorsLocked": "Custom colors are part of Premium.",
+  "colorsPick": "Pick a color for {role}",
+  "@colorsPick": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "roleBackground": "Background",
+  "roleSurface": "Sheets and inputs",
+  "roleCard": "Cards",
+  "rolePrimary": "Buttons",
+  "roleOnPrimary": "Button text",
+  "roleAccent": "Highlights",
+  "roleTextPrimary": "Main text",
+  "roleTextSecondary": "Secondary text",
+  "roleProgressDone": "Progress (done)",
+  "roleProgressProjected": "Progress (projected)",
+  "scheduleAvailability": "Weekly availability",
+  "scheduleDeadline": "Deadline",
+  "scheduleChangeDeadline": "Change deadline",
+  "scheduleAvailabilitySaved": "Availability saved.",
+  "scheduleGcal": "Google Calendar",
+  "scheduleGcalConnect": "Connect Google Calendar",
+  "scheduleGcalConnectBody": "Add SPARK sessions to your calendar and plan around your busy times. You'll sign in with Google in your browser.",
+  "scheduleGcalOpening": "Opening Google in your browser…",
+  "scheduleGcalReturn": "Finish connecting in your browser, then come back here.",
+  "scheduleGcalConnected": "Connected as {email}",
+  "@scheduleGcalConnected": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "scheduleGcalConnectedNoEmail": "Connected",
+  "scheduleGcalAddSessions": "Add SPARK sessions to my calendar",
+  "scheduleGcalBusy": "Plan around my busy times",
+  "scheduleGcalDisconnect": "Disconnect Google Calendar",
+  "scheduleGcalDisconnectConfirm": "Disconnect Google Calendar?",
+  "scheduleGcalDisconnectBody": "SPARK will stop syncing and revoke its access. Your SPARK plan stays the same.",
+  "scheduleGcalLocked": "Google Calendar sync is included with Standard and Premium.",
+  "privacyLeaderboard": "Leaderboard",
+  "privacyCommunityVisibility": "Community profile visibility",
+  "privacyVisibilityPrivate": "Only people I connect with",
+  "privacyVisibilityMembers": "Members with shared interests",
+  "privacyLocation": "Location (city or region only)",
+  "privacyLocationBody": "Used only to find opportunities near you. Never precise location.",
+  "privacyCity": "City",
+  "privacyRegion": "State or region",
+  "privacyConsents": "Your consents",
+  "privacyConsentsBody": "Change any of these anytime. Some features turn off without them.",
+  "privacyConsentLocation": "Use my city/region for opportunities",
+  "privacyConsentCalendar": "Connect calendar data",
+  "privacyTeenDefaults": "For teens, SPARK starts with the most private settings.",
+  "accountEmail": "Email",
+  "accountNoEmail": "Signed in with Apple or Google",
+  "accountDelete": "Delete account",
+  "accountDeleteTitle": "Delete your account?",
+  "accountDeleteBody": "This permanently deletes your projects, plans, journal photos, scrapbooks, chats, badges and settings, disconnects Google Calendar and removes your sign-in. Subscriptions must be cancelled in your app store account.",
+  "accountDeleteConfirmTitle": "Are you absolutely sure?",
+  "accountDeleteConfirmBody": "Type DELETE to confirm. This can't be undone.",
+  "accountDeleteWord": "DELETE",
+  "accountDeleteButton": "Delete everything",
+  "accountDeleting": "Deleting your account…",
+  "helpReplayTutorial": "Replay the tour",
+  "helpContactSupport": "Contact support",
+  "helpTerms": "Terms of Service",
+  "helpPrivacyPolicy": "Privacy Policy",
+  "helpVersion": "Version {version}",
+  "@helpVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "helpLicenses": "Open-source licenses",
+  "helpSupportSubject": "SPARK help",
+  "communityUnavailable": "Community isn't open yet. Check back soon!",
+  "communitySafetyTitle": "Staying safe in the SPARK community",
+  "communitySafetyPoint1": "You use a pseudonym and your companion's picture. Never share your real name, school, address, phone number or social media.",
+  "communitySafetyPoint2": "Messages are only between people your age group who both accepted a connection. Teens can only send text.",
+  "communitySafetyPoint3": "Everything is checked for safety before it's shown. Report or block anyone, anytime. We review every report.",
+  "communitySafetyPoint4": "Mentors are approved adults and only talk with teens in moderated groups, never in private messages.",
+  "communitySafetyAgree": "I understand",
+  "communitySetupTitle": "Set up your community profile",
+  "communitySetupBody": "Only a pseudonym, your avatar and interests are shown.",
+  "communityPseudonym": "Pseudonym",
+  "communityPseudonymHint": "e.g. PixelFox",
+  "communityInterests": "Interests",
+  "communityInterestsHint": "Add an interest and press enter",
+  "communityBio": "Short bio (optional)",
+  "communityBioWarning": "Please remove contact info, links or real names.",
+  "communitySaveProfile": "Save profile",
+  "communityPeople": "People",
+  "communityShowcase": "Showcase",
+  "communityGroups": "Groups",
+  "communityConnections": "Connections",
+  "communityNoMatches": "No matches yet. Add more interests to find people.",
+  "communityShared": "Shared: {interests}",
+  "@communityShared": {
+    "placeholders": {
+      "interests": {
+        "type": "String"
+      }
+    }
+  },
+  "communityConnect": "Send connection request",
+  "communityRequested": "Request sent",
+  "communityAccept": "Accept",
+  "communityDecline": "Decline",
+  "communityPending": "Waiting for them to accept",
+  "communityIncoming": "Wants to connect",
+  "communityOpenChat": "Open chat",
+  "communityNoConnections": "No connections yet.",
+  "communityShowcaseEmpty": "No showcases yet. Finish a milestone and share it!",
+  "communityShareProject": "Share a showcase",
+  "communityPostTitle": "Title",
+  "communityPostBody": "What did you make?",
+  "communityPostConsent": "I want to share this with the community.",
+  "communityPostPending": "Thanks! It'll appear after a quick safety check.",
+  "communityPost": "Post",
+  "communityJoinGroup": "Join group",
+  "communityLeaveGroup": "Leave group",
+  "communityGroupEmpty": "No posts yet.",
+  "communityWritePost": "Write something kind…",
+  "communityMessageHint": "Message…",
+  "communityMessagePending": "Checking…",
+  "communityMessageBlocked": "Not sent: this message didn't pass the safety check.",
+  "communityReport": "Report",
+  "communityReportTitle": "Report this?",
+  "communityReportReason": "What's wrong? (optional)",
+  "communityReported": "Thanks for reporting. Our team will review it.",
+  "communityBlock": "Block",
+  "communityBlockTitle": "Block {name}?",
+  "@communityBlockTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "communityBlockBody": "They won't be able to see your profile or message you.",
+  "communityBlocked": "Blocked.",
+  "communityMembers": "{count, plural, =1{1 member} other{{count} members}}",
+  "@communityMembers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "communityModerated": "Moderated group",
+  "communityEditProfile": "Edit community profile"
+}
