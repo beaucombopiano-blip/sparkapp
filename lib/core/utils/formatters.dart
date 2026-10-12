@@ -65,6 +65,9 @@ class SparkFormat {
 
   String compactNumber(num value) => NumberFormat.compact(locale: locale).format(value);
 
+  /// Up to one decimal, dropping a trailing zero: 5 → "5", 4.25 → "4.3".
+  String decimal(num value) => NumberFormat('#,##0.#', locale).format(value);
+
   String percent(double fraction) => NumberFormat.percentPattern(locale).format(fraction);
 }
 

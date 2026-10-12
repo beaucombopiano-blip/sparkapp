@@ -150,7 +150,7 @@ class _Stats extends ConsumerWidget {
     final hours = stats.minutes / 60;
     final items = <(IconData, String, String)>[
       (Icons.task_alt_rounded, '${stats.tasks}', l10n.profileStatTasks),
-      (Icons.schedule_rounded, l10n.profileHoursValue(hours >= 10 ? hours.toStringAsFixed(0) : hours.toStringAsFixed(1)), l10n.profileStatHours),
+      (Icons.schedule_rounded, l10n.profileHoursValue(context.fmt.decimal(hours >= 10 ? hours.roundToDouble() : hours)), l10n.profileStatHours),
       (Icons.local_fire_department_rounded, '${streaks?.daily ?? 0}', l10n.profileStatStreak),
       (Icons.calendar_view_week_rounded, '${streaks?.weekly ?? 0}', l10n.profileStatWeekStreak),
       (Icons.diamond_rounded, '${stats.milestones}', l10n.profileStatMilestones),

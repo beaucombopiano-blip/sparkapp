@@ -162,7 +162,7 @@ class _TaskCheckbox extends StatelessWidget {
               height: 26,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: done ? c.primary : const Color(0x00000000),
+                color: done ? c.primary : Colors.transparent,
                 border: Border.all(color: done ? c.primary : c.iconMuted, width: 2),
               ),
               child: Center(
@@ -232,7 +232,7 @@ class _PriorityDot extends StatelessWidget {
               height: 10,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: priority == TaskPriority.low ? const Color(0x00000000) : color,
+                color: priority == TaskPriority.low ? Colors.transparent : color,
                 border: Border.all(color: color, width: 2),
               ),
             ),

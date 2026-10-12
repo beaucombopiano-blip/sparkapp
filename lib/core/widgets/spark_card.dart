@@ -48,7 +48,7 @@ class SparkCard extends StatelessWidget {
       content = InkWell(onTap: onTap, borderRadius: Radii.cardAll, child: content);
     }
     Widget card = Material(
-      color: const Color(0x00000000),
+      color: Colors.transparent,
       child: Ink(
         decoration: BoxDecoration(
           color: background,

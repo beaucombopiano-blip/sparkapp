@@ -51,3 +51,6 @@ app.*.map.json
 .env
 *.env.json
 dart_defines.local.json
+
+# Golden test diff output
+test/goldens/failures/

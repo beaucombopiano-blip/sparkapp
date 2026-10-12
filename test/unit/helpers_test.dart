@@ -110,6 +110,13 @@ void main() {
       );
     });
 
+    test('decimals drop a trailing zero', () {
+      final fmt = SparkFormat('en', l10n);
+      expect(fmt.decimal(5), '5');
+      expect(fmt.decimal(4.25), '4.3');
+      expect(fmt.decimal(1234.5), '1,234.5');
+    });
+
     test('HH:mm parsing', () {
       expect(parseHhMm('16:30'), 990);
       expect(parseHhMm(' 7:05 '), 425);
