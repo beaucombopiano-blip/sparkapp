@@ -85,6 +85,12 @@ class NotificationService {
       ),
       onDidReceiveNotificationResponse: (response) => _route(response.payload),
     );
+    // Default channel for server pushes (see AndroidManifest.xml).
+    await _local
+        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(
+          const AndroidNotificationChannel('spark_push', 'SPARK', importance: Importance.high),
+        );
     final launch = await _local.getNotificationAppLaunchDetails();
     if (launch?.didNotificationLaunchApp ?? false) _route(launch!.notificationResponse?.payload);
 

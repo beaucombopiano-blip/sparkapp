@@ -101,6 +101,68 @@ final class JournalTimelineProvider
 
 String _$journalTimelineHash() => r'e07a25056526bdb04a7ace1863b98e7f94f75202';
 
+/// Throttles refreshes triggered by failing signed URLs: a broken file (not
+/// just an expired URL) must not cause an endless refetch loop.
+
+@ProviderFor(SignedUrlRefresh)
+final signedUrlRefreshProvider = SignedUrlRefreshProvider._();
+
+/// Throttles refreshes triggered by failing signed URLs: a broken file (not
+/// just an expired URL) must not cause an endless refetch loop.
+final class SignedUrlRefreshProvider
+    extends $NotifierProvider<SignedUrlRefresh, DateTime?> {
+  /// Throttles refreshes triggered by failing signed URLs: a broken file (not
+  /// just an expired URL) must not cause an endless refetch loop.
+  SignedUrlRefreshProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'signedUrlRefreshProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$signedUrlRefreshHash();
+
+  @$internal
+  @override
+  SignedUrlRefresh create() => SignedUrlRefresh();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(DateTime? value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<DateTime?>(value),
+    );
+  }
+}
+
+String _$signedUrlRefreshHash() => r'86a75590d2b99a182c05f570401769de8d473caf';
+
+/// Throttles refreshes triggered by failing signed URLs: a broken file (not
+/// just an expired URL) must not cause an endless refetch loop.
+
+abstract class _$SignedUrlRefresh extends $Notifier<DateTime?> {
+  DateTime? build();
+  @$mustCallSuper
+  @override
+  WhenComplete runBuild() {
+    final ref = this.ref as $Ref<DateTime?, DateTime?>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<DateTime?, DateTime?>,
+              DateTime?,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
+  }
+}
+
 @ProviderFor(scrapbooks)
 final scrapbooksProvider = ScrapbooksProvider._();
 

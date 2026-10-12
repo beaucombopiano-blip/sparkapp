@@ -746,7 +746,7 @@ final class NextSessionProvider
   }
 }
 
-String _$nextSessionHash() => r'477e8a9bc7de8dda597aa48ed283e0640f6430bd';
+String _$nextSessionHash() => r'48ad5ec730157968de7bf1403b84cd77d3ca90ae';
 
 @ProviderFor(pendingProposals)
 final pendingProposalsProvider = PendingProposalsProvider._();

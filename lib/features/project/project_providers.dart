@@ -28,7 +28,7 @@ PlanScope? activePlanScope(Ref ref) {
 Stream<List<Task>> currentTasks(Ref ref) {
   final scope = ref.watch(activePlanScopeProvider);
   if (scope == null) return Stream<List<Task>>.value(const <Task>[]);
-  return ref.watch(projectRepositoryProvider).watchCurrentTasks(scope.uid, scope.projectId, scope.version);
+  return ref.watch(projectRepositoryProvider).watchCurrentTasks(scope.uid, scope.projectId, scope.version, ref.watch(userClockProvider));
 }
 
 /// `getProgress`, re-fetched whenever the project's progress counters change
@@ -128,7 +128,7 @@ Stream<WorkSession?> nextSession(Ref ref) {
   final scope = ref.watch(activePlanScopeProvider);
   if (scope == null) return Stream<WorkSession?>.value(null);
   // Sessions that started up to 2h ago are still "next" (in progress).
-  final from = DateTime.now().toUtc().subtract(const Duration(hours: 2));
+  final from = ref.watch(userClockProvider).nowUtc().subtract(const Duration(hours: 2));
   return ref.watch(projectRepositoryProvider).watchNextSession(scope.uid, scope.projectId, scope.version, from);
 }
 

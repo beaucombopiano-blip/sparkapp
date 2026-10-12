@@ -60,7 +60,7 @@ class _TaskDetail extends ConsumerWidget {
     final hasJournal = ref.watch(hasFeatureProvider(Features.journal));
     final canUndo = task.isDone &&
         task.completedAt != null &&
-        DateTime.now().toUtc().difference(task.completedAt!) < const Duration(hours: 24);
+        clock.nowUtc().difference(task.completedAt!) < const Duration(hours: 24);
 
     final priority = switch (task.priority) {
       TaskPriority.high => l10n.priorityHigh,

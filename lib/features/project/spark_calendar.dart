@@ -41,7 +41,7 @@ Map<LocalDay, DayMarkers> buildDayMarkers({
   required UserClock clock,
   DateTime? now,
 }) {
-  final nowUtc = (now ?? DateTime.now()).toUtc();
+  final nowUtc = (now ?? clock.nowUtc()).toUtc();
   final sessionsByDay = <LocalDay, List<WorkSession>>{};
   for (final s in sessions) {
     if (s.status == SessionStatus.cancelled) continue;
@@ -130,7 +130,13 @@ class _SparkCalendarState extends ConsumerState<SparkCalendar> {
     final sessions = ref.watch(sessionsInRangeProvider(from, to)).value ?? const <WorkSession>[];
     final milestones = ref.watch(activeMilestonesProvider).value ?? const <Milestone>[];
     final deadline = ref.watch(activeProjectProvider.select((p) => p.value?.targetEndDate));
-    final markers = buildDayMarkers(sessions: sessions, milestones: milestones, deadline: deadline, clock: clock);
+    final markers = buildDayMarkers(
+      sessions: sessions,
+      milestones: milestones,
+      deadline: deadline,
+      clock: clock,
+      now: clock.nowUtc(),
+    );
     final locale = Localizations.localeOf(context).toLanguageTag();
     final scale = MediaQuery.textScalerOf(context).scale(1).clamp(1.0, 1.8);
 

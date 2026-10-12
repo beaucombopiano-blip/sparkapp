@@ -42,7 +42,12 @@ class ScrapbookScreen extends ConsumerWidget {
       child: AsyncValueView<ScrapbookView>(
         value: view,
         onRetry: () => ref.invalidate(scrapbookViewProvider(scrapbookId)),
-        data: (v) => _ScrapbookBody(view: v, onExpired: () => ref.invalidate(scrapbookViewProvider(scrapbookId))),
+        data: (v) => _ScrapbookBody(
+          view: v,
+          onExpired: () {
+            if (ref.read(signedUrlRefreshProvider.notifier).tryAcquire()) ref.invalidate(scrapbookViewProvider(scrapbookId));
+          },
+        ),
       ),
     );
   }

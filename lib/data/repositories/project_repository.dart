@@ -12,17 +12,20 @@ import '../models/schedule.dart';
 
 part 'project_repository.g.dart';
 
-/// Orders tasks by suggested day, then priority (high first), then order.
-List<Task> sortCurrentTasks(List<Task> tasks) {
-  int day(Task t) {
-    final d = t.suggestedDate;
-    return d == null ? 1 << 40 : d.millisecondsSinceEpoch ~/ Duration.millisecondsPerDay;
-  }
+/// Orders tasks by suggested day (in the user's time zone), then priority
+/// (high first), then plan order. Tasks without a suggested day come last.
+List<Task> sortCurrentTasks(List<Task> tasks, UserClock clock) {
+  LocalDay? day(Task t) => t.suggestedDate == null ? null : clock.dayOf(t.suggestedDate!);
 
   return List<Task>.of(tasks)
     ..sort((a, b) {
-      final byDay = day(a).compareTo(day(b));
-      if (byDay != 0) return byDay;
+      final da = day(a);
+      final db = day(b);
+      if (da != db) {
+        if (da == null) return 1;
+        if (db == null) return -1;
+        return da.compareTo(db);
+      }
       final byPriority = a.priority.index.compareTo(b.priority.index);
       if (byPriority != 0) return byPriority;
       return a.order.compareTo(b.order);
@@ -74,7 +77,7 @@ class ProjectRepository {
   /// actionable == true, status == pending, ordered by suggestedDate, then
   /// priority, then order. Priority is a string on the task, so the query
   /// orders by date/order and the priority tie-break is applied here.
-  Stream<List<Task>> watchCurrentTasks(String uid, String pid, int planVersion, {int limit = 5}) => _guard(
+  Stream<List<Task>> watchCurrentTasks(String uid, String pid, int planVersion, UserClock clock, {int limit = 5}) => _guard(
         typedQuery(
           _project(uid, pid)
               .collection('tasks')
@@ -85,7 +88,7 @@ class ProjectRepository {
               .orderBy('order')
               .limit(limit * 3),
           Task.fromJson,
-        ).snapshots().map((s) => sortCurrentTasks(s.docs.map((d) => d.data()).toList()).take(limit).toList()),
+        ).snapshots().map((s) => sortCurrentTasks(s.docs.map((d) => d.data()).toList(), clock).take(limit).toList()),
       );
 
   /// Tasks whose suggestedDate falls in [range] (daily/weekly/monthly views).

@@ -34,7 +34,10 @@ class SignedImage extends ConsumerWidget {
       loadingBuilder: (context, child, progress) =>
           progress == null ? child : ColoredBox(color: c.surfaceAlt, child: const Center(child: CircularProgressIndicator())),
       errorBuilder: (context, error, _) {
-        WidgetsBinding.instance.addPostFrameCallback((_) => ref.invalidate(journalTimelineProvider));
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          // The URL may have expired (10-minute signed URLs); refresh, throttled.
+          if (ref.read(signedUrlRefreshProvider.notifier).tryAcquire()) ref.invalidate(journalTimelineProvider);
+        });
         return ColoredBox(color: c.surfaceAlt, child: Icon(Icons.broken_image_rounded, color: c.iconMuted));
       },
     );

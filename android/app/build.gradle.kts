@@ -10,6 +10,8 @@ android {
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
+        // flutter_local_notifications uses java.time APIs.
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -19,7 +21,8 @@ android {
         applicationId = "app.sparkteens.spark"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        // Firebase and flutter_local_notifications require API 23+.
+        minSdk = maxOf(23, flutter.minSdkVersion)
         targetSdk = flutter.targetSdkVersion
         // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION
         // is added automatically by Flutter. (https://developer.android.com/studio/build/configure-apk-splits#configure-APK-versions)
@@ -27,6 +30,12 @@ android {
         // flag during build.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        // Overridable from android/gradle.properties (see docs/FRONTEND_DECISIONS.md).
+        manifestPlaceholders["sparkLinkHost"] =
+            (project.findProperty("sparkLinkHost") as String?) ?: "spark-app.web.app"
+        manifestPlaceholders["admobAppId"] =
+            (project.findProperty("admobAppId") as String?) ?: "ca-app-pub-3940256099942544~3347511713"
     }
 
     buildTypes {
@@ -46,4 +55,8 @@ kotlin {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 }

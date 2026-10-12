@@ -99,6 +99,9 @@ class UserClock {
 
   String get zoneName => location.name;
 
+  /// Current instant (UTC). Use instead of `DateTime.now()` so tests can pin time.
+  DateTime nowUtc() => _now().toUtc();
+
   /// Current wall-clock time in the user's zone.
   DateTime now() => toWallClock(_now().toUtc());
 

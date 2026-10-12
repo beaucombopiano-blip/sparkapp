@@ -28,6 +28,25 @@ Future<JournalTimeline?> journalTimeline(Ref ref) async {
   return ref.read(journalRepositoryProvider).getTimeline(pid);
 }
 
+/// Throttles refreshes triggered by failing signed URLs: a broken file (not
+/// just an expired URL) must not cause an endless refetch loop.
+@Riverpod(keepAlive: true)
+class SignedUrlRefresh extends _$SignedUrlRefresh {
+  static const Duration minInterval = Duration(seconds: 60);
+
+  @override
+  DateTime? build() => null;
+
+  /// Returns true (and records the time) when a refresh is allowed now.
+  bool tryAcquire({DateTime? now}) {
+    final t = now ?? DateTime.now();
+    final last = state;
+    if (last != null && t.difference(last) < minInterval) return false;
+    state = t;
+    return true;
+  }
+}
+
 @Riverpod(keepAlive: true)
 Stream<List<Scrapbook>> scrapbooks(Ref ref) {
   final uid = ref.watch(currentUidProvider);

@@ -194,7 +194,7 @@ class AgendaDayContent extends ConsumerWidget {
     final fmt = context.fmt;
     final clock = ref.watch(userClockProvider);
     final completing = ref.watch(taskCompletionProvider);
-    final nowUtc = DateTime.now().toUtc();
+    final nowUtc = clock.nowUtc();
 
     Widget taskTile(Task t) => TaskTile(
           task: t,
