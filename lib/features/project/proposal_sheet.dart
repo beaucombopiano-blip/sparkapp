@@ -10,6 +10,7 @@ import '../../core/widgets/proposal_card.dart';
 import '../../data/models/schedule.dart';
 import '../../data/providers/session_providers.dart';
 import '../../data/repositories/schedule_repository.dart';
+import 'project_providers.dart';
 
 /// Plain-language lines describing what a proposal changes.
 List<String> describeProposal(Proposal proposal, AppLocalizations l10n, String locale, UserClock clock) {
@@ -62,6 +63,15 @@ class _ProposalReviewState extends ConsumerState<ProposalReview> {
     final locale = Localizations.localeOf(context).toLanguageTag();
     final p = widget.proposal;
     final repo = ref.read(scheduleRepositoryProvider);
+    // The backend's record wins: applied elsewhere (or after a timeout here)
+    // shows Done; dismissed shows Skipped.
+    final status = ref.watch(proposalByIdProvider(p.id)).value?.status ?? p.status;
+    final serverPhase = switch (status) {
+      ProposalStatus.applied => ProposalPhase.done,
+      ProposalStatus.dismissed => ProposalPhase.cancelled,
+      ProposalStatus.failed => ProposalPhase.failed,
+      _ => null,
+    };
 
     final options = p.needsOptionChoice
         ? Column(
@@ -93,6 +103,7 @@ class _ProposalReviewState extends ConsumerState<ProposalReview> {
       details: describeProposal(p, l10n, locale, clock),
       extra: options,
       confirmEnabled: !p.needsOptionChoice || _optionId != null,
+      serverPhase: serverPhase,
       icon: Icons.event_repeat_rounded,
       onConfirm: () async {
         await repo.applyProposal(p.id, optionId: _optionId);

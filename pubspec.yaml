@@ -92,6 +92,7 @@ dev_dependencies:
   riverpod_generator: ^4.0.9
   mocktail: ^1.0.5
   fake_cloud_firestore: ^4.3.0
+  image_picker_platform_interface: ^2.11.2
 
 flutter:
   uses-material-design: true

@@ -170,3 +170,40 @@ See `docs/FRONTEND_DECISIONS.md` → "Configuration" for every `--dart-define`.
 To run against the Firebase Emulator Suite add
 `--dart-define=SPARK_USE_EMULATORS=true` (and `SPARK_EMULATOR_HOST` when the
 emulators are not on `localhost`/`10.0.2.2`).
+
+### Tests
+
+```bash
+flutter analyze                       # zero issues expected
+flutter test                          # unit, widget, app-flow and golden tests
+flutter test --exclude-tags golden    # on macOS/Windows (goldens are Linux-rendered)
+```
+
+### Integration tests (Firebase Emulator Suite)
+
+The flows in `integration_test/` drive the real UI against the emulators with
+the SPARK backend deployed to them. The backend should run in its emulator
+test mode with deterministic AI responses so recommendations, plans and
+companion proposals are produced quickly.
+
+```bash
+# In the backend repo
+firebase emulators:start --only auth,firestore,functions,storage
+
+# Here, with an Android emulator or iOS simulator running
+flutter test integration_test \
+  --dart-define-from-file=dart_defines.local.json \
+  --dart-define=SPARK_USE_EMULATORS=true
+```
+
+| File | Flow |
+| --- | --- |
+| `onboarding_path_b_test.dart` | email-link signup → Path B assessment → pick a project → deadline → availability → plan → tutorial → complete a task → progress moves |
+| `onboarding_path_a_test.dart` | Path A idea interview → review → confirm → setup → plan |
+| `companion_proposal_test.dart` | ask the companion to move a session → proposal card → Confirm → Done only after `applyProposal` |
+| `journal_upload_test.dart` | add a photo (generated PNG via a fake image picker) → upload to the Storage emulator → entry appears when processed |
+
+Each test wipes the Auth and Firestore emulators first and reads the
+sign-in link from the Auth emulator's `oobCodes` endpoint, so no real email
+is sent.
+

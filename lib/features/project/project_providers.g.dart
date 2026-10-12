@@ -91,7 +91,7 @@ final class CurrentTasksProvider
   }
 }
 
-String _$currentTasksHash() => r'923a7790a8e23856b3bf48c1e074a970f0931cad';
+String _$currentTasksHash() => r'3dc0941af4c292344c589287b382c579ee12ad5b';
 
 /// `getProgress`, re-fetched whenever the project's progress counters change
 /// (completing a task anywhere updates every screen).
@@ -786,6 +786,85 @@ final class PendingProposalsProvider
 }
 
 String _$pendingProposalsHash() => r'a3c39a12aff4b5177979a29358f1658b876ea079';
+
+/// A proposal's live document (status changes after apply/dismiss).
+
+@ProviderFor(proposalById)
+final proposalByIdProvider = ProposalByIdFamily._();
+
+/// A proposal's live document (status changes after apply/dismiss).
+
+final class ProposalByIdProvider
+    extends
+        $FunctionalProvider<AsyncValue<Proposal?>, Proposal?, Stream<Proposal?>>
+    with $FutureModifier<Proposal?>, $StreamProvider<Proposal?> {
+  /// A proposal's live document (status changes after apply/dismiss).
+  ProposalByIdProvider._({
+    required ProposalByIdFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'proposalByIdProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$proposalByIdHash();
+
+  @override
+  String toString() {
+    return r'proposalByIdProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $StreamProviderElement<Proposal?> $createElement($ProviderPointer pointer) =>
+      $StreamProviderElement(pointer);
+
+  @override
+  Stream<Proposal?> create(Ref ref) {
+    final argument = this.argument as String;
+    return proposalById(ref, argument);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ProposalByIdProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$proposalByIdHash() => r'10273ba6a13bcd6fb2482172534f4eeaa6a8362f';
+
+/// A proposal's live document (status changes after apply/dismiss).
+
+final class ProposalByIdFamily extends $Family
+    with $FunctionalFamilyOverride<Stream<Proposal?>, String> {
+  ProposalByIdFamily._()
+    : super(
+        retry: null,
+        name: r'proposalByIdProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  /// A proposal's live document (status changes after apply/dismiss).
+
+  ProposalByIdProvider call(String proposalId) =>
+      ProposalByIdProvider._(argument: proposalId, from: this);
+
+  @override
+  String toString() => r'proposalByIdProvider';
+}
 
 @ProviderFor(availability)
 final availabilityProvider = AvailabilityProvider._();

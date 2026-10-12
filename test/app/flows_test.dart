@@ -200,6 +200,32 @@ void main() {
       expect(find.text(l10n.proposalDone), findsOneWidget);
     });
 
+    testWidgets('shows Done when the backend applied it despite a local timeout', (tester) async {
+      final env = await start(tester);
+      final proposals = env.userDoc.collection('proposals');
+      env.functions
+        ..on('reschedule', (_) async {
+          final p = proposal();
+          await proposals.doc('p1').set(<String, Object?>{
+            ...Map<String, Object?>.from(p['proposal'] as Map),
+            'createdAt': Timestamp.fromDate(env.now),
+          });
+          return p;
+        })
+        ..on('applyProposal', (_) async {
+          // The server applies the change, but the response never arrives.
+          await proposals.doc('p1').update(<String, Object?>{'status': 'applied'});
+          throw const AppException(kind: AppErrorKind.timeout);
+        });
+      await pumpApp(tester, env, location: Routes.agendaFor(date: '2026-10-12', view: 'day'));
+
+      await tester.tap(find.text(l10n.agendaRescheduleUnfinished));
+      await settleData(tester);
+      await tester.tap(find.text(l10n.proposalConfirm));
+      await settleData(tester);
+      expect(find.text(l10n.proposalDone), findsOneWidget);
+    });
+
     testWidgets('a failed apply never shows Done', (tester) async {
       final env = await start(tester);
       env.functions

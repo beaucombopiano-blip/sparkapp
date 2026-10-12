@@ -36,6 +36,13 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 Future<void> main() async {
+  runApp(await bootstrap());
+}
+
+/// Initialises fonts, time zones, preferences and Firebase, and returns the
+/// root widget. Integration tests call this with [forTesting] (no crash
+/// reporting hooks, which would replace the test binding's error handlers).
+Future<Widget> bootstrap({bool forTesting = false}) async {
   WidgetsFlutterBinding.ensureInitialized();
   configureFonts();
   _registerFontLicenses();
@@ -60,26 +67,26 @@ Future<void> main() async {
   try {
     options = DefaultFirebaseOptions.currentPlatform;
   } on FirebaseNotConfiguredException {
-    runApp(const NotConfiguredApp());
-    return;
+    return const NotConfiguredApp();
   }
 
-  await Firebase.initializeApp(options: options);
-  await _activateAppCheck();
-  if (AppConfig.useEmulators) await _connectEmulators();
-  _configureCrashReporting();
+  if (Firebase.apps.isEmpty) {
+    await Firebase.initializeApp(options: options);
+    await _activateAppCheck();
+    if (AppConfig.useEmulators) await _connectEmulators();
+    // Offline cache so cached data stays readable without a connection.
+    FirebaseFirestore.instance.settings = const Settings(persistenceEnabled: true);
+  }
+  if (!forTesting) {
+    _configureCrashReporting();
+    if (!kIsWeb) FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+  }
 
-  // Offline cache so cached data stays readable without a connection.
-  FirebaseFirestore.instance.settings = const Settings(persistenceEnabled: true);
-  if (!kIsWeb) FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
-
-  runApp(
-    ProviderScope(
-      overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
-      // Failures surface as error states with an explicit Retry button.
-      retry: (_, _) => null,
-      child: const SparkApp(),
-    ),
+  return ProviderScope(
+    overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
+    // Failures surface as error states with an explicit Retry button.
+    retry: (_, _) => null,
+    child: const SparkApp(),
   );
 }
 

@@ -139,6 +139,14 @@ Stream<List<Proposal>> pendingProposals(Ref ref) {
   return ref.watch(scheduleRepositoryProvider).watchPendingProposals(uid);
 }
 
+/// A proposal's live document (status changes after apply/dismiss).
+@riverpod
+Stream<Proposal?> proposalById(Ref ref, String proposalId) {
+  final uid = ref.watch(currentUidProvider);
+  if (uid == null) return Stream<Proposal?>.value(null);
+  return ref.watch(scheduleRepositoryProvider).watchProposal(uid, proposalId);
+}
+
 @Riverpod(keepAlive: true)
 Stream<List<AvailabilitySlot>> availability(Ref ref) {
   final uid = ref.watch(currentUidProvider);
