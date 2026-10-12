@@ -77,17 +77,19 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
         physics: const AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.fromLTRB(Space.gutter, Space.m, Space.gutter, Space.xl),
         children: <Widget>[
-          Row(
+          // Wraps (rather than squeezing the button) at large text sizes.
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: Space.s,
+            runSpacing: Space.s,
             children: <Widget>[
-              Expanded(
-                child: SparkButton(
-                  key: const Key('journal-add'),
-                  label: l10n.journalAddEntry,
-                  icon: Icons.add_a_photo_rounded,
-                  onPressed: hasProject ? () => showAddJournalEntrySheet(context) : null,
-                ),
+              SparkButton(
+                key: const Key('journal-add'),
+                label: l10n.journalAddEntry,
+                icon: Icons.add_a_photo_rounded,
+                onPressed: hasProject ? () => showAddJournalEntrySheet(context) : null,
               ),
-              const SizedBox(width: Space.s),
               SparkChip(
                 label: newestFirst ? l10n.journalNewestFirst : l10n.journalOldestFirst,
                 icon: newestFirst ? Icons.arrow_downward_rounded : Icons.arrow_upward_rounded,

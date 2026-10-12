@@ -2794,11 +2794,17 @@ abstract class AppLocalizations {
   /// **'{start} – {end}'**
   String agendaWeekRange(String start, String end);
 
-  /// No description provided for @agendaMonthDaySummary.
+  /// No description provided for @agendaSessionCount.
   ///
   /// In en, this message translates to:
-  /// **'{sessions, plural, =0{} =1{1 session} other{{sessions} sessions}}{tasks, plural, =0{} =1{ · 1 task} other{ · {tasks} tasks}}'**
-  String agendaMonthDaySummary(int sessions, int tasks);
+  /// **'{count, plural, =1{1 session} other{{count} sessions}}'**
+  String agendaSessionCount(int count);
+
+  /// No description provided for @agendaTaskCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 task} other{{count} tasks}}'**
+  String agendaTaskCount(int count);
 
   /// No description provided for @agendaMonthEmpty.
   ///

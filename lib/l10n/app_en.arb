@@ -928,15 +928,16 @@
       }
     }
   },
-  "agendaMonthDaySummary": "{sessions, plural, =0{} =1{1 session} other{{sessions} sessions}}{tasks, plural, =0{} =1{ · 1 task} other{ · {tasks} tasks}}",
-  "@agendaMonthDaySummary": {
+  "agendaSessionCount": "{count, plural, =1{1 session} other{{count} sessions}}",
+  "@agendaSessionCount": {
     "placeholders": {
-      "sessions": {
-        "type": "int"
-      },
-      "tasks": {
-        "type": "int"
-      }
+      "count": {"type": "int"}
+    }
+  },
+  "agendaTaskCount": "{count, plural, =1{1 task} other{{count} tasks}}",
+  "@agendaTaskCount": {
+    "placeholders": {
+      "count": {"type": "int"}
     }
   },
   "agendaMonthEmpty": "Nothing planned this month.",

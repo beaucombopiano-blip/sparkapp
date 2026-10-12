@@ -85,7 +85,7 @@ void main() {
     testWidgets('month view summarises busy days', (tester) async {
       final env = await start(tester);
       await pumpApp(tester, env, location: Routes.agendaFor(date: '2026-10-14', view: 'month'));
-      expect(find.text(l10n.agendaMonthDaySummary(1, 2)), findsWidgets);
+      expect(find.text('${l10n.agendaSessionCount(1)} · ${l10n.agendaTaskCount(2)}'), findsWidgets);
     });
 
     testWidgets('the view toggle switches between day, week and month', (tester) async {
@@ -96,7 +96,7 @@ void main() {
       expect(find.text(l10n.agendaWeekTotals(1, 6, '5h')), findsOneWidget);
       await tester.tap(find.text(l10n.agendaMonth));
       await settleData(tester);
-      expect(find.text(l10n.agendaMonthDaySummary(1, 2)), findsWidgets);
+      expect(find.text('${l10n.agendaSessionCount(1)} · ${l10n.agendaTaskCount(2)}'), findsWidgets);
       expect(router.state.uri.path, Routes.agenda);
     });
   });

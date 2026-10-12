@@ -24,6 +24,7 @@ class SparkTestEnv {
   final FakeFirebaseFirestore db = FakeFirebaseFirestore();
   final FakeFunctionsClient functions = FakeFunctionsClient();
   final MockStreamingFunctionsClient streaming = MockStreamingFunctionsClient();
+  final MockFirebaseStorage storage = MockFirebaseStorage();
   late SharedPreferences prefs;
 
   static const uid = 'user-1';
@@ -54,6 +55,7 @@ class SparkTestEnv {
   }) =>
       <Override>[
         firestoreProvider.overrideWithValue(db),
+        firebaseStorageProvider.overrideWithValue(storage),
         functionsClientProvider.overrideWithValue(functions),
         streamingFunctionsClientProvider.overrideWithValue(streaming),
         sharedPreferencesProvider.overrideWithValue(prefs),

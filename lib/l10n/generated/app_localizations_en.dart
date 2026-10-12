@@ -1563,22 +1563,25 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String agendaMonthDaySummary(int sessions, int tasks) {
+  String agendaSessionCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
-      sessions,
+      count,
       locale: localeName,
-      other: '$sessions sessions',
+      other: '$count sessions',
       one: '1 session',
-      zero: '',
     );
-    String _temp1 = intl.Intl.pluralLogic(
-      tasks,
+    return '$_temp0';
+  }
+
+  @override
+  String agendaTaskCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
       locale: localeName,
-      other: ' · $tasks tasks',
-      one: ' · 1 task',
-      zero: '',
+      other: '$count tasks',
+      one: '1 task',
     );
-    return '$_temp0$_temp1';
+    return '$_temp0';
   }
 
   @override

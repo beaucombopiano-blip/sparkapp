@@ -1,5 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 
+import '../../app/theme/contrast.dart';
 import '../../app/theme/spark_colors.dart';
 import '../../data/models/catalog.dart';
 import 'spark_logo.dart';
@@ -59,7 +60,7 @@ class CharacterAvatar extends StatelessWidget {
           painter: SparkFacePainter(
             fill: tint,
             fillEnd: c.secondary,
-            face: c.onAccent,
+            face: _faceColorFor(tint, c),
             cheek: c.surfaceAlt,
             state: const FaceState(),
           ),
@@ -73,4 +74,11 @@ class CharacterAvatar extends StatelessWidget {
       child: SizedBox.square(dimension: size, child: child),
     );
   }
+}
+
+/// The theme colour that reads best on [tint] (the face must stay visible on
+/// both light and dark character tints).
+Color _faceColorFor(Color tint, SparkColors c) {
+  final candidates = <Color>[c.onAccent, c.onPrimary, c.textPrimary, c.surface];
+  return candidates.reduce((best, next) => contrastRatio(next, tint) > contrastRatio(best, tint) ? next : best);
 }

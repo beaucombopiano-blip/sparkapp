@@ -122,6 +122,14 @@ List<AgendaDay> buildAgendaDays({
   return days;
 }
 
+/// "1 session · 2 tasks · Milestone: …" (only the parts that apply).
+String monthDaySummary(AppLocalizations l10n, AgendaDay day) => <String>[
+      if (day.sessions.isNotEmpty) l10n.agendaSessionCount(day.sessions.length),
+      if (day.allTasks.isNotEmpty) l10n.agendaTaskCount(day.allTasks.length),
+      for (final m in day.milestones) l10n.agendaMilestoneItem(m.title),
+      if (day.isDeadline) l10n.agendaDeadlineItem,
+    ].join(' · ');
+
 /// Watches all data for [from]..[to] and builds agenda days.
 AsyncValue<List<AgendaDay>> watchAgenda(WidgetRef ref, LocalDay from, LocalDay to) {
   final sessions = ref.watch(sessionsInRangeProvider(from, to));
@@ -387,7 +395,7 @@ class AgendaMonthList extends ConsumerWidget {
                       ListTile(
                         onTap: () => onDayTap(d.day),
                         title: Text(fmt.shortDate(d.day.asDateTime)),
-                        subtitle: Text(l10n.agendaMonthDaySummary(d.sessions.length, d.allTasks.length)),
+                        subtitle: Text(monthDaySummary(l10n, d)),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[

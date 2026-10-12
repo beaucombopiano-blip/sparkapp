@@ -1,0 +1,3 @@
+tags:
+  golden:
+    description: Pixel comparisons of key screens. Generated on Linux; update with --update-goldens.

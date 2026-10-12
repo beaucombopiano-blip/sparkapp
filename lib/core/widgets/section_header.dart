@@ -12,19 +12,27 @@ class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final hasAction = actionLabel != null && onAction != null;
     return Padding(
       padding: const EdgeInsets.only(top: Space.l, bottom: Space.s),
-      child: Row(
+      // A Wrap keeps the action at the trailing edge when it fits and moves it
+      // under the title at large text sizes instead of overflowing.
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        crossAxisAlignment: WrapCrossAlignment.center,
         children: <Widget>[
-          Expanded(
-            child: Semantics(
-              header: true,
-              child: Text(title, style: Theme.of(context).textTheme.titleLarge),
-            ),
+          Semantics(
+            header: true,
+            child: Text(title, style: Theme.of(context).textTheme.titleLarge),
           ),
-          ?trailing,
-          if (actionLabel != null && onAction != null)
-            TextButton(onPressed: onAction, child: Text(actionLabel!)),
+          if (trailing != null || hasAction)
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ?trailing,
+                if (hasAction) Flexible(child: TextButton(onPressed: onAction, child: Text(actionLabel!))),
+              ],
+            ),
         ],
       ),
     );

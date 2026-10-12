@@ -26,6 +26,8 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
     'Nunito': 'assets/google_fonts/Nunito-Bold.ttf',
     'Inter': 'assets/google_fonts/Inter-Regular.ttf',
     'Roboto': 'assets/google_fonts/Inter-Regular.ttf',
+    // Copied into the test bundle by `uses-material-design: true`.
+    'MaterialIcons': 'fonts/MaterialIcons-Regular.otf',
   };
   for (final entry in fonts.entries) {
     final loader = FontLoader(entry.key)..addFont(rootBundle.load(entry.value));

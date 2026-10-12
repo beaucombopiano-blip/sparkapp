@@ -6,6 +6,7 @@ import 'package:spark/data/repositories/project_repository.dart';
 import 'package:spark/features/agenda/agenda_views.dart';
 import 'package:spark/features/project/project_providers.dart';
 import 'package:spark/features/project/spark_calendar.dart';
+import 'package:spark/l10n/generated/app_localizations_en.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 void main() {
@@ -96,6 +97,14 @@ void main() {
     test('milestones and the deadline appear on their days', () {
       expect(days[4].milestones.single.id, 'm');
       expect(days[6].isDeadline, isTrue);
+    });
+
+    test('month summaries list only what applies', () {
+      final l10n = AppLocalizationsEn();
+      expect(monthDaySummary(l10n, days[2]), '2 sessions · 2 tasks');
+      expect(monthDaySummary(l10n, days[3]), '1 task');
+      expect(monthDaySummary(l10n, days[4]), 'Milestone: M');
+      expect(monthDaySummary(l10n, days[6]), l10n.agendaDeadlineItem);
     });
   });
 

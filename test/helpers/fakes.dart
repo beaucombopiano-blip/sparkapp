@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:spark/core/network/sse_client.dart';
 import 'package:spark/data/firestore/functions_client.dart';
@@ -34,3 +35,6 @@ class MockStreamingFunctionsClient extends Mock implements StreamingFunctionsCli
 
 /// Builds an SSE event.
 SseEvent sse(String event, String data) => SseEvent(event: event, data: data);
+
+/// Storage is only touched by uploads; screens just need an instance.
+class MockFirebaseStorage extends Mock implements FirebaseStorage {}
