@@ -48,7 +48,7 @@ class ProjectRepository {
   Stream<T> _guard<T>(Stream<T> stream) => stream.handleError((Object e) => throw mapError(e));
 
   Stream<Project?> watchProject(String uid, String pid) =>
-      _guard(typedDoc(_project(uid, pid), Project.fromJson).snapshots().map((s) => s.exists ? s.data() : null));
+      _guard(watchDoc(_project(uid, pid), Project.fromJson));
 
   Stream<List<Project>> watchProjects(String uid) => _guard(
         typedQuery(
@@ -116,9 +116,7 @@ class ProjectRepository {
       );
 
   Stream<Task?> watchTask(String uid, String pid, String taskId) => _guard(
-        typedDoc(_project(uid, pid).collection('tasks').doc(taskId), Task.fromJson)
-            .snapshots()
-            .map((s) => s.exists ? s.data() : null),
+        watchDoc(_project(uid, pid).collection('tasks').doc(taskId), Task.fromJson),
       );
 
   /// Tasks by id (prerequisites, a session's tasks). Firestore `whereIn`
@@ -160,9 +158,7 @@ class ProjectRepository {
       );
 
   Stream<WorkSession?> watchSession(String uid, String pid, String sessionId) => _guard(
-        typedDoc(_project(uid, pid).collection('sessions').doc(sessionId), WorkSession.fromJson)
-            .snapshots()
-            .map((s) => s.exists ? s.data() : null),
+        watchDoc(_project(uid, pid).collection('sessions').doc(sessionId), WorkSession.fromJson),
       );
 
   /// The next scheduled session starting after [from].

@@ -58,7 +58,11 @@ class _ProposalCardState extends State<ProposalCard> {
 
   ProposalPhase get _effectivePhase {
     if (_phase == ProposalPhase.working) return _phase;
-    if (_phase == ProposalPhase.idle && widget.serverPhase != null) return widget.serverPhase!;
+    final server = widget.serverPhase;
+    // The backend reporting the change as executed is confirmation even when
+    // this device's request failed (e.g. a timeout after the server applied it).
+    if (server == ProposalPhase.done) return server!;
+    if (_phase == ProposalPhase.idle && server != null) return server;
     return _phase;
   }
 

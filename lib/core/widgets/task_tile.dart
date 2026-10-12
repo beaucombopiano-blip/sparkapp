@@ -142,6 +142,7 @@ class _TaskCheckbox extends StatelessWidget {
     }
 
     return Semantics(
+      container: true,
       checked: done,
       enabled: onPressed != null,
       label: semanticLabel,

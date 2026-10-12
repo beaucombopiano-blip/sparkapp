@@ -80,6 +80,15 @@ DocumentReference<T> typedDoc<T>(
   );
 }
 
+/// Live, parsed document (null while it doesn't exist). Maps raw snapshots
+/// rather than using a converter so every update is delivered the same way
+/// on all Firestore implementations.
+Stream<T?> watchDoc<T>(
+  DocumentReference<Map<String, dynamic>> ref,
+  T Function(Map<String, dynamic> json) fromJson,
+) =>
+    ref.snapshots().map((s) => s.exists ? fromJson(docJson(s)) : null);
+
 /// Document data as JSON with the document id under `id`.
 Map<String, dynamic> docJson(DocumentSnapshot<Map<String, dynamic>> snapshot) {
   final data = normalizeMap(snapshot.data());

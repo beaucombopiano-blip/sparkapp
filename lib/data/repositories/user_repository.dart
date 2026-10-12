@@ -22,9 +22,7 @@ class UserRepository {
   DocumentReference<Map<String, dynamic>> _settingsDoc(String uid) =>
       _userDoc(uid).collection('private').doc('settings');
 
-  Stream<UserProfile?> watchProfile(String uid) => typedDoc(_userDoc(uid), UserProfile.fromJson)
-      .snapshots()
-      .map((s) => s.exists ? s.data() : null)
+  Stream<UserProfile?> watchProfile(String uid) => watchDoc(_userDoc(uid), UserProfile.fromJson)
       .handleError((Object e) => throw mapError(e));
 
   Stream<UserSettings> watchSettings(String uid) => _settingsDoc(uid)

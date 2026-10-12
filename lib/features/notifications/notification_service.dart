@@ -40,7 +40,7 @@ int notificationIdFor(String itemId) {
     hash ^= unit;
     hash = (hash * 0x01000193) & 0x7FFFFFFF;
   }
-  return hash;
+  return hash & 0x7FFFFFFF;
 }
 
 /// FCM registration, local scheduling of the notification plan, and routing

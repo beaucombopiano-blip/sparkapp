@@ -48,7 +48,10 @@ class SparkTestEnv {
     _defaultHandlers();
   }
 
-  List<Override> overrides({AuthSession? session = const AuthSession(uid: uid, email: 'maya@example.com', profileComplete: true)}) =>
+  List<Override> overrides({
+    AuthSession? session = const AuthSession(uid: uid, email: 'maya@example.com', profileComplete: true),
+    bool online = true,
+  }) =>
       <Override>[
         firestoreProvider.overrideWithValue(db),
         functionsClientProvider.overrideWithValue(functions),
@@ -56,7 +59,7 @@ class SparkTestEnv {
         sharedPreferencesProvider.overrideWithValue(prefs),
         authSessionProvider.overrideWith((ref) => Stream<AuthSession?>.value(session)),
         userClockProvider.overrideWithValue(clock),
-        isOnlineProvider.overrideWith((ref) => Stream<bool>.value(true)),
+        isOnlineProvider.overrideWith((ref) => Stream<bool>.value(online)),
         notificationBootstrapProvider.overrideWith((ref) async {}),
         deepLinkListenerProvider.overrideWithValue(DeepLinkListener(onLink: (_) {})),
       ];

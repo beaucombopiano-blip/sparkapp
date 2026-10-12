@@ -110,6 +110,19 @@ class _SparkCalendarState extends ConsumerState<SparkCalendar> {
     }
   }
 
+  /// Days in the visible grid (whole weeks, Monday first), matching
+  /// table_calendar's layout with six-week months not enforced.
+  List<LocalDay> _gridDays() {
+    final first = widget.collapsed ? _focused.startOfWeek : _focused.startOfMonth.startOfWeek;
+    final last = widget.collapsed ? first.addDays(6) : _focused.endOfMonth.startOfWeek.addDays(6);
+    return <LocalDay>[for (var d = first; !d.isAfter(last); d = d.addDays(1)) d];
+  }
+
+  void _select(LocalDay day) {
+    setState(() => _focused = day);
+    widget.onDaySelected(day);
+  }
+
   void _shiftMonth(int delta) {
     setState(() {
       _focused = widget.collapsed
@@ -181,49 +194,42 @@ class _SparkCalendarState extends ConsumerState<SparkCalendar> {
       final m = markers[local] ?? const DayMarkers();
       final isToday = local == today;
       final isSelected = widget.selectedDay == local;
-      final label = _semanticsFor(l10n, fmt, local, m, isToday);
-      return Semantics(
-        label: label,
-        button: true,
-        selected: isSelected,
-        excludeSemantics: true,
-        child: Container(
-          margin: const EdgeInsets.all(3),
-          decoration: BoxDecoration(
-            color: isSelected ? c.surfaceAlt : (m.allCompleted ? c.success.withValues(alpha: 0.14) : null),
-            borderRadius: Radii.smallAll,
-            border: isToday
-                ? Border.all(color: c.primary, width: 2)
-                : (m.missed ? Border.all(color: c.danger, width: 1.5) : null),
-          ),
-          child: Stack(
-            children: <Widget>[
-              Align(
-                alignment: const Alignment(0, -0.35),
-                child: FittedBox(
-                  child: Text(
-                    '${day.day}',
-                    style: text.bodyMedium?.copyWith(
-                      color: outside ? c.iconMuted : c.textPrimary,
-                      fontWeight: isToday || isSelected ? FontWeight.w800 : FontWeight.w500,
-                    ),
+      return Container(
+        margin: const EdgeInsets.all(3),
+        decoration: BoxDecoration(
+          color: isSelected ? c.surfaceAlt : (m.allCompleted ? c.success.withValues(alpha: 0.14) : null),
+          borderRadius: Radii.smallAll,
+          border: isToday
+              ? Border.all(color: c.primary, width: 2)
+              : (m.missed ? Border.all(color: c.danger, width: 1.5) : null),
+        ),
+        child: Stack(
+          children: <Widget>[
+            Align(
+              alignment: const Alignment(0, -0.35),
+              child: FittedBox(
+                child: Text(
+                  '${day.day}',
+                  style: text.bodyMedium?.copyWith(
+                    color: outside ? c.iconMuted : c.textPrimary,
+                    fontWeight: isToday || isSelected ? FontWeight.w800 : FontWeight.w500,
                   ),
                 ),
               ),
-              Align(alignment: const Alignment(0, 0.8), child: _MarkerRow(markers: m)),
-              if (m.allCompleted)
-                Positioned(
-                  right: 2,
-                  top: 2,
-                  child: Icon(Icons.check_rounded, size: 11, color: c.success),
-                ),
-            ],
-          ),
+            ),
+            Align(alignment: const Alignment(0, 0.8), child: _MarkerRow(markers: m)),
+            if (m.allCompleted)
+              Positioned(
+                right: 2,
+                top: 2,
+                child: Icon(Icons.check_rounded, size: 11, color: c.success),
+              ),
+          ],
         ),
       );
     }
 
-    final calendar = LegacyMaterialBridge(
+    final table = LegacyMaterialBridge(
       child: TableCalendar<Object>(
         locale: locale,
         firstDay: DateTime(today.year - 2, 1, 1),
@@ -259,6 +265,38 @@ class _SparkCalendarState extends ConsumerState<SparkCalendar> {
           markerBuilder: (context, day, events) => const SizedBox.shrink(),
         ),
       ),
+    );
+
+    // table_calendar replaces each cell's semantics with a bare date, so its
+    // grid is excluded and an invisible grid of day nodes (same geometry)
+    // carries the markers and the select action for screen readers. It does
+    // not hit-test, so touches still reach the calendar.
+    final gridDays = _gridDays();
+    final semanticsGrid = Column(
+      children: <Widget>[
+        SizedBox(height: 22 * scale),
+        for (var week = 0; week < gridDays.length ~/ 7; week++)
+          Row(
+            children: <Widget>[
+              for (final day in gridDays.skip(week * 7).take(7))
+                Expanded(
+                  child: Semantics(
+                    label: _semanticsFor(l10n, fmt, day, markers[day] ?? const DayMarkers(), day == today),
+                    button: true,
+                    selected: widget.selectedDay == day,
+                    onTap: () => _select(day),
+                    child: SizedBox(height: 48 * scale),
+                  ),
+                ),
+            ],
+          ),
+      ],
+    );
+    final calendar = Stack(
+      children: <Widget>[
+        ExcludeSemantics(child: table),
+        Positioned(left: 0, right: 0, top: 0, child: semanticsGrid),
+      ],
     );
 
     return Material(

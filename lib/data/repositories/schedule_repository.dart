@@ -106,9 +106,7 @@ class ScheduleRepository {
       ).snapshots().map((s) => s.docs.map((d) => d.data()).toList()).handleError((Object e) => throw mapError(e));
 
   Stream<Proposal?> watchProposal(String uid, String proposalId) =>
-      typedDoc(_user(uid, 'proposals').doc(proposalId), Proposal.fromJson)
-          .snapshots()
-          .map((s) => s.exists ? s.data() : null)
+      watchDoc(_user(uid, 'proposals').doc(proposalId), Proposal.fromJson)
           .handleError((Object e) => throw mapError(e));
 
   /// Asks the scheduler for a capacity-respecting proposal.

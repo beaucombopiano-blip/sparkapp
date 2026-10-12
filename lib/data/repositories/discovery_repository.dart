@@ -104,9 +104,7 @@ class DiscoveryRepository {
   }
 
   Stream<IdeaInterview?> watchInterview(String uid, String interviewId) =>
-      typedDoc(_db.collection('users').doc(uid).collection('ideaInterviews').doc(interviewId), IdeaInterview.fromJson)
-          .snapshots()
-          .map((s) => s.exists ? s.data() : null)
+      watchDoc(_db.collection('users').doc(uid).collection('ideaInterviews').doc(interviewId), IdeaInterview.fromJson)
           .handleError((Object e) => throw mapError(e));
 
   /// The most recent unfinished interview (to resume after quitting).

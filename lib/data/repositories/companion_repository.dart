@@ -133,10 +133,10 @@ class CompanionRepository {
         ChatMessage.fromJson,
       ).snapshots().map((s) => s.docs.map((d) => d.data()).toList()).handleError((Object e) => throw mapError(e));
 
-  Stream<ProposedAction?> watchProposedAction(String uid, String actionId) => typedDoc(
+  Stream<ProposedAction?> watchProposedAction(String uid, String actionId) => watchDoc(
         _db.collection('users').doc(uid).collection('proposedActions').doc(actionId),
         ProposedAction.fromJson,
-      ).snapshots().map((s) => s.exists ? s.data() : null).handleError((Object e) => throw mapError(e));
+      ).handleError((Object e) => throw mapError(e));
 
   /// Executes a proposed action. Returns true only when the backend reports
   /// success; failures throw with the real message.

@@ -20,9 +20,7 @@ class CommunityRepository {
   Stream<T> _guard<T>(Stream<T> s) => s.handleError((Object e) => throw mapError(e));
 
   Stream<CommunityProfile?> watchProfile(String uid) => _guard(
-        typedDoc(_db.collection('communityProfiles').doc(uid), CommunityProfile.fromJson)
-            .snapshots()
-            .map((s) => s.exists ? s.data() : null),
+        watchDoc(_db.collection('communityProfiles').doc(uid), CommunityProfile.fromJson),
       );
 
   Future<void> saveProfile({
@@ -70,9 +68,7 @@ class CommunityRepository {
       );
 
   Stream<CommunityGroup?> watchGroup(String groupId) => _guard(
-        typedDoc(_db.collection('communityGroups').doc(groupId), CommunityGroup.fromJson)
-            .snapshots()
-            .map((s) => s.exists ? s.data() : null),
+        watchDoc(_db.collection('communityGroups').doc(groupId), CommunityGroup.fromJson),
       );
 
   Stream<List<CommunityPost>> watchGroupPosts(String groupId) => _guard(
