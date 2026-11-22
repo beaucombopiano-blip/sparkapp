@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPARK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: the page looks like the app itself (sky-blue canvas, white cards, teal actions), with the flame mascot as guide. */
+  --bg:#D4E8F8;
+  --card:#FFFFFF;
+  --ink:#16294A;
+  --muted:#5A6B85;
+  --line:#C3DAEE;
+  --teal:#4E9FAD;
+  --teal-deep:#2F7F8E;
+  --teal-soft:#E3F1F4;
+  --danger:#E25C5C;
+  --font:"Inter", "Helvetica Neue", Arial, system-ui, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1B2E; --card:#16263D; --ink:#E6EEF8; --muted:#9DB0C8; --line:#24395A;
+    --teal:#5DB3C1; --teal-deep:#7CC6D2; --teal-soft:#1C3442; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1B2E; --card:#16263D; --ink:#E6EEF8; --muted:#9DB0C8; --line:#24395A;
+  --teal:#5DB3C1; --teal-deep:#7CC6D2; --teal-soft:#1C3442; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.12;text-wrap:balance;margin:0;font-weight:800;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,6vw,4rem)}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+h3{font-size:1.08rem;font-weight:700;letter-spacing:-.005em}
+p{margin:0}
+.muted{color:var(--muted)}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:30px;height:auto}
+.brand b{display:block;font-size:1.2rem;font-weight:800;letter-spacing:-.01em;line-height:1}
+.brand small{display:block;font-size:.72rem;color:var(--muted);margin-top:3px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .98rem var(--font);background:var(--teal);color:#fff;border:0;border-radius:10px;padding:12px 20px;text-decoration:none;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--teal-deep)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+@media (prefers-reduced-motion: reduce){.btn{transition:none}}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding:28px 0 56px}
+.lede{font-size:1.15rem;max-width:36ch;margin:18px 0 26px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.stat{margin-top:20px;font-size:.92rem;display:flex;gap:10px;align-items:center}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px var(--teal-soft)}
+
+/* app preview */
+.app{background:var(--card);border-radius:18px;box-shadow:0 18px 40px -18px rgba(22,41,74,.35);overflow:hidden;display:grid;grid-template-columns:150px 1fr;border:1px solid var(--line)}
+.side{background:color-mix(in srgb,var(--card) 92%,var(--bg));padding:16px 10px;display:grid;gap:4px;align-content:start;border-right:1px solid var(--line)}
+.side .item{display:flex;align-items:center;gap:8px;font-size:.82rem;padding:8px 10px;border-radius:8px;color:var(--ink)}
+.side .item.on{background:var(--teal-soft);color:var(--teal-deep);font-weight:600;box-shadow:inset 3px 0 0 var(--teal)}
+.side svg{width:15px;height:15px;flex:none}
+.main{background:var(--bg);padding:16px;display:grid;gap:10px}
+.main .top{display:flex;justify-content:space-between;align-items:flex-start}
+.main .top b{font-size:1rem}
+.main .top small{display:block;font-size:.72rem;color:var(--muted)}
+.mini-btn{font:600 .72rem var(--font);background:var(--teal);color:#fff;border-radius:7px;padding:6px 10px}
+.prog{background:var(--card);border-radius:10px;padding:10px 12px;font-size:.76rem}
+.prog .row{display:flex;justify-content:space-between}
+.prog .row span:last-child{color:var(--teal-deep);font-weight:600}
+.bar{height:8px;background:var(--line);border-radius:99px;margin-top:7px;overflow:hidden}
+.bar i{display:block;height:100%;width:20%;background:var(--teal);border-radius:99px}
+.task{background:var(--card);border-radius:10px;padding:10px 12px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+.task .chk{width:16px;height:16px;border-radius:50%;border:2px solid var(--muted);margin-top:2px}
+.task .chk.done{background:var(--teal);border-color:var(--teal)}
+.task b{font-size:.8rem;display:block}
+.task span{font-size:.72rem;color:var(--muted);display:block}
+.task .pill{display:inline-block;justify-self:start;font-size:.66rem;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:1px 7px;margin-top:5px;font-weight:600}
+
+section{padding:56px 0}
+.kicker{font-weight:700;color:var(--teal-deep);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+
+.quote{background:var(--card);border-radius:22px;padding:44px 40px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;border:1px solid var(--line)}
+.quote img{width:68px;height:auto}
+.quote blockquote{margin:0;font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.quote blockquote span{color:var(--teal-deep)}
+.quote p{margin-top:12px}
+
+.problem{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.problem p+p{margin-top:14px}
+.posts{display:grid;gap:12px;margin-top:22px}
+.post{background:var(--card);border-radius:12px;padding:13px 16px;font-size:.93rem;border:1px solid var(--line)}
+.post.real{border:1.5px dashed var(--teal)}
+.post b{font-weight:600}
+.post small{display:block;color:var(--muted);font-size:.78rem;margin-top:3px}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.card{background:var(--card);border-radius:14px;padding:22px;display:grid;gap:10px;align-content:start;border:1px solid var(--line)}
+.card .ic{width:38px;height:38px;border-radius:10px;background:var(--teal-soft);display:grid;place-items:center}
+.card .ic svg{width:19px;height:19px;stroke:var(--teal-deep)}
+.card p{font-size:.93rem}
+
+.help{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-size:.9rem;font-weight:500}
+.chip svg{width:15px;height:15px;stroke:var(--teal-deep)}
+
+.founder{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:var(--card);border-radius:20px;padding:30px;border:1px solid var(--line)}
+.avatar{width:64px;height:64px;border-radius:50%;background:var(--teal-soft);color:var(--teal-deep);display:grid;place-items:center;font-weight:800;font-size:1.4rem}
+.founder p+p{margin-top:12px}
+.sig{font-weight:600}
+
+.join{background:var(--ink);color:var(--bg);border-radius:22px;padding:44px 38px;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;margin:8px 0 56px}
+.join h2{color:#fff}
+.join p{color:#C9D6E8;margin-top:12px}
+.join .box{display:grid;gap:12px}
+.hint{font-size:.85rem}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:.88rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:820px){
+  .hero,.problem,.join{grid-template-columns:1fr}
+  .join{padding:30px 22px}
+}
+@media (max-width:520px){
+  .app{grid-template-columns:1fr}.side{display:none}
+  .grid{grid-template-columns:1fr}
+  .quote,.founder{grid-template-columns:1fr;padding:28px 22px}
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#top" aria-label="SPARK home">
+      <img src="logo.png" alt="" aria-hidden="true">
+      <span><b>SPARK</b><small>spark inspiration. see possibilities.</small></span>
+    </a>
+    <a class="btn ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSd5seTPZF5alpK3kGXEw4gEQQZqPbUptDrWloQUfs32exnaEQ/viewform?usp=header">Join the waitlist</a>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <h1>Finish what you start.</h1>
+      <p class="lede muted">SPARK is a project mentor and manager for ambitious teens. Start a business, write a book, or launch a community project, and get through the messy middle instead of quitting there.</p>
+      <div class="ctas">
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd5seTPZF5alpK3kGXEw4gEQQZqPbUptDrWloQUfs32exnaEQ/viewform?usp=header">Join the waitlist</a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+      <p class="stat"><span class="dot" aria-hidden="true"></span><span><b>200+ students</b> on the waitlist · launching December 2026</span></p>
+    </div>
+
+    <figure class="app" aria-label="Preview of the SPARK Tasks screen" style="margin:0">
+      <div class="side">
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7v9H3z"/></svg>Home</div>
+        <div class="item on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8 12 3 3 5-6"/></svg>Tasks</div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h7v15H4zM13 5h7v15h-7z"/></svg>Journal</div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5V16h8v-2.5A6 6 0 0 0 12 3z"/></svg>Resources</div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Schedule</div>
+      </div>
+      <div class="main">
+        <div class="top"><div><b>Tasks</b><small>6 of 30 completed</small></div><span class="mini-btn">+ Add Task</span></div>
+        <div class="prog"><div class="row"><span>6 of 30 tasks completed</span><span>20%</span></div><div class="bar"><i></i></div></div>
+        <div class="task"><span class="chk done"></span><div><b>Pick a project idea</b><span>Community history workshop series</span></div></div>
+        <div class="task"><span class="chk"></span><div><b>Plan Initial Community Workshop</b><span>Outline the format and topics of the first workshop</span><span class="pill">Milestone</span></div></div>
+        <div class="task"><span class="chk"></span><div><b>Identify Local Experts</b><span>Find local historians, archivists, or community members</span></div></div>
+      </div>
+    </figure>
+  </header>
+
+  <section>
+    <div class="quote">
+      <img src="logo.png" alt="" aria-hidden="true">
+      <div>
+        <blockquote>“Perfection is the enemy of <span>progress</span>.”</blockquote>
+        <p class="muted">Every feature in SPARK follows this idea. You don't need a perfect plan to start, and you don't need a perfect week to keep going.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem">
+    <div>
+      <p class="kicker">The problem</p>
+      <h2>Your feed only shows the finish line.</h2>
+    </div>
+    <div>
+      <p class="muted">Social media is full of "how I built a startup in a month." Nobody posts week three, when nothing is working. So when your own project gets hard, it feels like something is wrong with you or your idea.</p>
+      <p class="muted">Usually, nothing is wrong. You're in the normal middle of the process. SPARK makes that middle visible, gives you a plan through it, and connects you with people who've been there.</p>
+      <div class="posts">
+        <div class="post"><b>"Scaled my nonprofit to 100k users in 3 weeks 🚀"</b><small>What you see online</small></div>
+        <div class="post real"><b>"Week 3. Rewrote the pitch twice. Two people signed up. Keeping going."</b><small>What SPARK helps you see, and keep doing</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <p class="kicker">How it works</p>
+    <h2>Everything you need to get from idea to done.</h2>
+    <div class="grid">
+      <article class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8 12 3 3 5-6"/></svg></span>
+        <h3>Tasks &amp; milestones</h3>
+        <p class="muted">Break your project into steps, mark the milestones, and watch your progress bar fill as you check things off.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 5h7v15H4zM13 5h7v15h-7z"/></svg></span>
+        <h3>Journal</h3>
+        <p class="muted">Your journey in photos. Save drafts, setbacks, and wins so you can see how far you've come, even before results show up.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+        <h3>Schedule</h3>
+        <p class="muted">Set your work sessions around school and life. SPARK builds a realistic timeline that fits the time you actually have.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5V16h8v-2.5A6 6 0 0 0 12 3z"/></svg></span>
+        <h3>Resources &amp; help</h3>
+        <p class="muted">Ask anything about your project and get guidance, resources, and connections to mentors who've built something similar.</p>
+      </article>
+    </div>
+    <div class="help" aria-label="Things you can ask SPARK about">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Staying motivated</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>Getting started</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Time management</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>Setting goals</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 11v2l13 5V6L3 11zM16 9h3v6h-3"/></svg>Promoting my work</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 4a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6"/></svg>Finding mentors</span>
+    </div>
+  </section>
+
+
+  <section class="join" id="join">
+    <div>
+      <h2>Be one of the first to try SPARK.</h2>
+      <p>SPARK launches in December 2026. Join the waitlist for early access and a say in what we build next.</p>
+    </div>
+    <div class="box">
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd5seTPZF5alpK3kGXEw4gEQQZqPbUptDrWloQUfs32exnaEQ/viewform?usp=header">Join the waitlist</a>
+      <p class="hint">Takes 30 seconds. Opens a short Google Form.</p>
+    </div>
+  </section>
+
+  <footer class="muted">
+    <span>© 2026 SPARK · Apex, North Carolina</span>
+    <a href="https://www.linkedin.com/in/beau-combopiano-267070367">Beau on LinkedIn</a>
+  </footer>
+</div>
+
+
+</body>
+</html>
